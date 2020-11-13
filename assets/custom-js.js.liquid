@@ -1,0 +1,20 @@
+$(document).ready(function() {
+	$('.shop-category-dropdown-left ul li').hover(function(){
+		var selected_shop_category = $(this).find('a').data('value');
+		$('.category-dropdown-right-item').removeClass('active');
+		$('.category-dropdown-right-item[data-value="' + selected_shop_category + '"]').addClass('active');
+	});
+
+	$('body').on('click', '.header-middle--category button', function() {
+		$('.header-shop-category-dropdown').toggleClass('is-open');
+	});
+
+	$('body').on('click', '.header-middle--cart img', function() {
+
+		// $('.cart-popup-wrapper').addClass('is-transitioning').removeClass('cart-popup-wrapper--hidden');
+	});
+
+	$('body').on('click', '.header-middle--sign a', function() {
+		$('.header-login-form').toggleClass('active');
+	})
+});

@@ -2856,6 +2856,7 @@ theme.Header = (function() {
   var cache = {};
 
   function init() {
+    if (document.querySelector(selectors.navigation) == null) return;
     cacheSelectors();
     styleDropdowns(document.querySelectorAll(selectors.siteNavHasDropdown));
     positionFullWidthDropdowns();
@@ -2886,7 +2887,7 @@ theme.Header = (function() {
 
   function cacheSelectors() {
     var navigation = document.querySelector(selectors.navigation);
-
+    
     cache = {
       nav: navigation,
       topLevel: document.querySelectorAll(selectors.siteNavLinkMain),
@@ -2895,7 +2896,7 @@ theme.Header = (function() {
       activeDropdown: document.querySelector(selectors.siteNavActiveDropdown),
       siteHeader: document.querySelector(selectors.siteHeader),
       siteNavChildLink: document.querySelectorAll(selectors.siteNavChildLink)
-    };
+    };  
   }
 
   function showDropdown(element) {

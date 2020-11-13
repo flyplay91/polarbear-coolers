@@ -349,7 +349,7 @@
   },
   "layout": {
     "navigation": {
-      "search": "Search",
+      "search": "search",
       "expand": "expand",
       "collapse": "collapse",
       "menu": "Menu"

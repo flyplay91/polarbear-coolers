@@ -17,11 +17,14 @@
   {%- assign base_font_italic = base_font | font_modify: 'style', 'italic' -%}
   {%- assign base_font_bold_italic = base_font_bold | font_modify: 'style', 'italic' -%}
 
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style">
   {{ 'custom-style.scss.css' | asset_url | stylesheet_tag }}
   <link rel="preload" as="font" href="{{ header_font | font_url }}" type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="{{ base_font | font_url }}" type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="{{ base_font_bold | font_url }}" type="font/woff2" crossorigin>
+  {{ 'jquery.min.js' | asset_url | script_tag }}
   <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
   <link rel="preload" href="{{ 'lazysizes.js' | asset_url }}" as="script">
   {{ 'custom-js.js' | asset_url | script_tag }}
