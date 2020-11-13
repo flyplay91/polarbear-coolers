@@ -1,0 +1,123 @@
+html {
+	font-family: "Poppins";
+}
+.header-top {
+	display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  margin: auto;
+  font-size: 0.75rem;
+  border-bottom: 1px solid rgba(205, 205, 205, 0.7);
+  background-color: #000;
+
+  .header-top-right {
+  	display: flex;
+
+  	span.header-top-link {
+  		padding: 0.5em 1rem;
+	    position: relative;
+	    font-weight: 600;
+	    color: white;
+	    font-size: 0.75rem;
+	    line-height: 1.8;
+	    letter-spacing: 0.1em;
+	    text-transform: uppercase;
+
+	    &:after {
+	    	width: 1px;
+		    height: 1.5em;
+		    position: absolute;
+		    content: '';
+		    background-color: rgba(205, 205, 205, 0.7);
+		    opacity: 0.75;
+		    -webkit-transform: translateX(1rem);
+		    -ms-transform: translateX(1rem);
+		    transform: translateX(1rem);
+	    }
+		}
+		a.header-top-link {
+  		padding: 0.5em 1rem;
+	    position: relative;
+	    font-weight: 600;
+	    color: #ff830f;
+	    font-size: 0.75rem;
+	    line-height: 1.8;
+	    letter-spacing: 0.1em;
+	    text-transform: uppercase;
+
+	    &:after {
+	    	width: 1px;
+		    height: 1.5em;
+		    position: absolute;
+		    content: '';
+		    background-color: rgba(205, 205, 205, 0.7);
+		    opacity: 0.75;
+		    -webkit-transform: translateX(1rem);
+		    -ms-transform: translateX(1rem);
+		    transform: translateX(1rem);
+	    }
+		}
+  }
+}
+
+.header-middle {
+	max-width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: relative;
+  background-color: #353537;
+  color: #ffffff;
+  padding-right: 16px;
+  padding-left: 16px;
+
+  .header-middle__inner {
+  	display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style: none;
+    transition: all .3s ease;
+    margin: 0 0 0 calc(0px - 16px);
+
+    .header-middle--logo {
+    	flex-basis: 16.666%;
+    	max-width: 16.666%;
+    	font-size: 0;
+    	flex: 1 1 auto;
+    	padding-left: 16px;
+
+    	> a > img {
+    		width: 100%;
+    	}
+    }
+
+    .header-middle--category {
+    	flex-basis: 16.666%;
+    	max-width: 16.666%;
+    	flex: 1 1 auto;
+    	padding-left: 16px;
+
+    	a {
+		    margin: 0;
+		    padding: calc(0.5em - 1px) calc(1em - 1px);
+		    font-size: 16px;
+		    font-weight: 600;
+		    letter-spacing: 0.025em;
+    	}
+
+    	span {
+    		&:before {
+    			content: "\31";
+    			background-color: rgba(0, 0, 0, 0);
+    		}
+    	}
+    }
+  }
+}
+
+
+
+
+
