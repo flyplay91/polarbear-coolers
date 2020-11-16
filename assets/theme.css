@@ -4446,6 +4446,7 @@ hr {
 
 .search-bar__close {
   padding: calc(10em / 16) 0.75em;
+  color: #6e6e6e;
   margin-right: -10px; }
   .search-bar__close .icon {
     width: 1rem;

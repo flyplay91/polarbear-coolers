@@ -75,7 +75,8 @@
       "newsletter_email": "Subscribe to our mailing list",
       "email_placeholder": "Email address",
       "confirmation": "Thanks for subscribing!",
-      "submit": "Subscribe"
+      "submit": "Subscribe",
+      "btn": "Sign Up For Product Deals And Updates"
     },
     "filters": {
       "show_more": "Show More",
