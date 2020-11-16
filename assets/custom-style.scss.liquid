@@ -236,6 +236,7 @@ button:focus {
       text-align: center;
       letter-spacing: 0.05em;
       font-size: 16px;
+      z-index: 1;
     }
 
     &.has-dropdown {
@@ -247,6 +248,115 @@ button:focus {
         font-size: 70%;
         position: relative;
         top: -.2em;
+      }
+
+      &:hover {
+        .bottom-dropdown-menu {
+          transition: transform 800ms ease 0s, opacity 800ms ease 0s;
+          transform: scale(1, 1);
+          opacity: 1;
+        }
+      }
+    }
+
+    .bottom-dropdown-menu {
+      max-width: 90%;
+      position: absolute;
+      top: 163px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 100%;
+      clip: auto;
+      visibility: visible;
+      height: auto;
+      overflow: visible;
+      padding: 5px;
+      border-radius: 5px;
+      background-color: black;
+      z-index: 1;
+      transition: transform 800ms ease 0s, opacity 800ms ease 0s;
+      transform: scale(0, 1);
+
+
+      .bottom-dropdown-menu-wrapper {
+        .bottom-dropdown-menu-heading {
+          margin: 5px;
+          box-sizing: border-box;
+          padding: 40px 20px 20px;
+          text-align: center;
+
+          h3 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 20.8px;
+          }
+        }
+
+        .bottom-dropdown-menu-body {
+          display: flex;
+
+          .grid-2 {
+            width: 50%;
+          }
+
+          .bottom-dropdown-menu-body--left {
+            
+            background-color: #fff;
+            color: #000;
+            margin: 5px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            padding: 20px;
+
+            h4 {
+              font-size: 19.2px;
+            }
+
+            p {
+              line-height: 1.6;
+              font-size: 18px;
+            }
+          }
+
+          .bottom-dropdown-menu-body--right {
+            background-color: #fff;
+            color: #000;
+            margin: 5px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            padding: 20px;
+
+            h4 {
+              font-size: 19.2px;
+            }
+
+            p {
+              line-height: 1.6;
+              font-size: 18px;
+            }
+          }
+        }
+
+        .bottom-dropdown-menu-bottom {
+          padding: 20px;
+          a {
+            letter-spacing: 0.8px;
+            background-color: #fcae46;
+            color: white;
+            display: block;
+            text-decoration: none;
+            max-width: 400px;
+            margin: 0 auto;
+            font-weight: 700;
+            font-size: 20px;
+            padding: calc(0.5em * 3 - 1px) calc(1em * 3 - 1px);
+
+            &:hover {
+              background-color: #e17824;
+            }
+          }
+        }
       }
     }
   }
