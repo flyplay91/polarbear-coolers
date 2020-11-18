@@ -294,6 +294,21 @@ button:focus {
       transition: transform 800ms ease 0s, opacity 800ms ease 0s;
       transform: scale(0, 1);
 
+      &.accessories-dropdown {
+        max-width: 12%;
+        left: auto;
+        background-color: #868686e6;
+        padding: 10px;
+        ul li {
+          &:first-child {
+            border-bottom: solid 1px black;
+          }
+          a {
+            font-weight: 500;
+          }
+        }
+      }
+
 
       .bottom-dropdown-menu-wrapper {
         .bottom-dropdown-menu-heading {
