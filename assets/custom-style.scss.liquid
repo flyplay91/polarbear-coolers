@@ -224,7 +224,7 @@ button:focus {
   flex-wrap: wrap;
   width: 100%;
 
-  li {
+  > li {
     flex-grow: 1;
     list-style-type: none;
     margin: 0;
@@ -232,7 +232,7 @@ button:focus {
     display: flex;
     flex-direction: column;
 
-    a {
+    > a {
       background-color: #f58220;
       color: #fff;
       border-right: 1px solid #000;
@@ -246,14 +246,16 @@ button:focus {
       letter-spacing: 0.05em;
       font-size: 16px;
       z-index: 1;
+      font-weight: 100;
       &:hover {
         background-color: rgba(134,134,134,.9);
         color: #fff;
+        font-weight: 600;
       }
     }
 
     &.has-dropdown {
-      a:before {
+      > a:before {
         content: "\25BA";
         margin-left: -1.1em;
         padding-right: .2em;
@@ -311,11 +313,23 @@ button:focus {
         .bottom-dropdown-menu-body {
           display: flex;
 
-          .grid-2 {
+          .d-w-50 {
             width: 50%;
           }
 
-          .bottom-dropdown-menu-body--left {
+          .d-w-25 {
+            width: 25%;
+          }
+
+          .d-w-22 {
+            width: 22%;
+          }
+
+          .d-w-34 {
+            width: 34%;
+          }
+
+          .bottom-dropdown-menu-item {
             
             background-color: #fff;
             color: #000;
@@ -333,23 +347,20 @@ button:focus {
               line-height: 1.6;
               font-size: 18px;
             }
-          }
 
-          .bottom-dropdown-menu-body--right {
-            background-color: #fff;
-            color: #000;
-            margin: 5px;
-            box-sizing: border-box;
-            border-radius: 5px;
-            padding: 20px;
-
-            h4 {
-              font-size: 19.2px;
-            }
-
-            p {
-              line-height: 1.6;
-              font-size: 18px;
+            a {
+              background-color: #fcae46;
+              display: block;
+              text-align: center;
+              text-decoration: none;
+              max-width: 250px;
+              margin: 0 auto;
+              font-size: 20px;
+              font-weight: 700;
+              padding: 10px 0;
+              &:hover {
+                background-color: #e17824;
+              }
             }
           }
         }
@@ -366,7 +377,9 @@ button:focus {
             margin: 0 auto;
             font-weight: 700;
             font-size: 20px;
-            padding: calc(0.5em * 3 - 1px) calc(1em * 3 - 1px);
+            padding: calc(0.5em * 3 - 1px) 0;
+            text-align: center;
+            text-transform: uppercase;
 
             &:hover {
               background-color: #e17824;
@@ -754,3 +767,91 @@ button:focus {
   }
 }
 
+.template-collection {
+  .collection-header {
+    h1 {
+      text-align:left;
+      font-weight:700;
+    }
+  }
+  
+  .custom-cooler-shop {
+    .customcooler-sections {
+      display: flex;
+      	.d-w-50 {
+          width: 50%;
+          
+          	h4 {
+              letter-spacing: 0.05em;
+              margin-bottom: 1.125rem;
+              font-size: 25px;
+              font-weight: 400;
+              color: #4a4a4a;
+              	strong {
+                  font-weight:900;
+                }
+            }
+          h5 {
+            letter-spacing: 0.05em;
+            margin-bottom: 25px;
+            margin-top: 15px;
+            font-size: 25px;
+            font-weight: 400;
+            color: #4a4a4a;
+          }
+          p {
+            font-size: 20px;
+            font-weight: 200;
+            letter-spacing: 0.05em;
+            margin-bottom:60px;
+          }
+
+          
+         
+          button {
+            display: block;
+			width: 100%;
+            padding: calc(0.5em * 3 - 1px) calc(1em * 3 - 1px);
+            margin:0px 0px 50px 0px;
+            line-height: normal;
+			text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0);
+            appearance: none;
+			cursor: pointer;
+			letter-spacing: 0.05em;
+            transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+			font-size: 15px;
+            text-transform:uppercase;   
+            font-weight:bold;
+          }
+          .dark {
+            background-color: #333;
+            color: #fff;
+            &:hover {
+              background-color: #3f3f3f;
+              transform:scale(1.03);
+              transition:0.2s;
+            }
+          }
+
+          .light {
+            background-color: #fcae46;
+            color: #333;
+              &:hover {
+                background-color: #e17824;
+                transform:scale(1.03);
+                transition:0.2s;
+              }
+          }
+          
+        }
+    }
+  }
+  
+  
+  
+  
+}
