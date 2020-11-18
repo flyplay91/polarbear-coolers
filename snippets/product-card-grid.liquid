@@ -10,7 +10,12 @@
 {% endcomment %}
 <div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
   <a class="grid-view-item__link grid-view-item__image-container collection-product-link" href="{{ product.url | within: collection }}">
-    <h4 class="collection-product-title">{{ product.title }}</h4>
+    <div class="collection-product-title-reviews">
+      <h4 class="collection-product-title">{{ product.title }}</h4>
+      <div class="collection-product-reviews">
+        <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
+      </div>
+    </div>
   
 
     {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}

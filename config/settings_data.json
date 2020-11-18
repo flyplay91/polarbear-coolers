@@ -287,6 +287,18 @@
           "color_footer_link_text": "#ff830f",
           "color_footer_link_hover_text": "#ffffff"
         }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 2,
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
       }
     },
     "content_for_index": [
