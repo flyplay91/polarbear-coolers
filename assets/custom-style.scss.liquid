@@ -1,12 +1,16 @@
 html {
-	font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	
 }
 h1,h2,h3,h4,h5,h6,span,p,label,a {
-  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;;
+
+  color: #4a4a4a;
 }
 button:focus {
   outline: none;
 }
+#RecoverPassword {color: #0f0f0f;}
+
+
 .header-top {
 	display: flex;
   align-items: center;
@@ -23,7 +27,7 @@ button:focus {
   	span.header-top-link {
   		padding: 6px 16px;
 	    position: relative;
-	    font-weight: 600;
+	    font-weight: 300;
 	    color: white;
 	    font-size: 12px;
 	    line-height: 1.8;
@@ -42,10 +46,11 @@ button:focus {
 		    transform: translateX(1rem);
 	    }
 		}
+    
 		a.header-top-link {
   		padding: 6px 16px;
 	    position: relative;
-	    font-weight: 600;
+	    font-weight: 300;
 	    color: #ff830f;
 	    font-size: 12px;
 	    line-height: 1.8;
@@ -63,6 +68,10 @@ button:focus {
 		    -ms-transform: translateX(1rem);
 		    transform: translateX(1rem);
 	    }
+          
+          &:hover {color:#ffffff;}
+          
+          
 		}
   }
 }
@@ -232,11 +241,15 @@ button:focus {
       text-decoration: none;
       white-space: nowrap;
       transition: all linear .3s;
-      padding: 5px 5px 5px 10px;
+      padding: 10px 6px 10px 10px;
       text-align: center;
       letter-spacing: 0.05em;
       font-size: 16px;
       z-index: 1;
+      &:hover {
+        background-color: rgba(134,134,134,.9);
+        color: #fff;
+      }
     }
 
     &.has-dropdown {
@@ -251,6 +264,7 @@ button:focus {
       }
 
       &:hover {
+          
         .bottom-dropdown-menu {
           transition: transform 800ms ease 0s, opacity 800ms ease 0s;
           transform: scale(1, 1);
@@ -262,7 +276,7 @@ button:focus {
     .bottom-dropdown-menu {
       max-width: 90%;
       position: absolute;
-      top: 163px;
+      top: 190px;
       left: 0;
       right: 0;
       margin: auto;
@@ -288,8 +302,9 @@ button:focus {
 
           h3 {
             margin: 0;
-            font-weight: 700;
+            font-weight: 900;
             font-size: 20.8px;
+            color:#fff;
           }
         }
 
@@ -311,6 +326,7 @@ button:focus {
 
             h4 {
               font-size: 19.2px;
+               font-weight: 900;
             }
 
             p {
@@ -655,7 +671,6 @@ button:focus {
       flex: 0 1 auto;
       flex-direction: row;
       flex-wrap: wrap;
-      margin: 0 0 0 calc(0px - 16px);
       padding: 32px 0;
 
       .footer-logo-block {

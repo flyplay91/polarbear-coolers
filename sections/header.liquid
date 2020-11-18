@@ -54,15 +54,15 @@
     {% endif %}
   {% endif %}
 
-  <header class="{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
+  <header class="{% if section.settings.align_logo == 'left' %} logo--left{% else %} logo--center{% endif %}" role="banner">
 
     <div class="header-top">
       <div class="header-top-left"></div>
       <div class="header-top-right">
         <span class="header-top-link">888-438-7924</span>
-        <a class="header-top-link" href="">Shop All Coolers</a>
-        <a class="header-top-link" href="">Contact Us</a>
-        <a class="header-top-link" href="">Order Status</a>
+        <a class="header-top-link" href="/collections/all" title="Shop All Coolers">Shop All Coolers</a>
+        <a class="header-top-link" href="/pages/contact-us" title="Contact Polar Bear Coolers">Contact Us</a>
+        <a class="header-top-link" href="/account" title="Check My Order Status">Order Status</a>
       </div>
     </div>
 
@@ -93,7 +93,7 @@
         </div>
         <ul class="header-middle--shop-sign-cart">
           <li class="header-middle--shop">
-            <a href="">Custom Shop</a>
+            <a href="/collections/custom-cooler-shop/">Custom Shop</a>
           </li>
           <li class="header-middle--sign">
             <a href="javascript:void(0)">
@@ -114,7 +114,7 @@
 
     <ul class="header-bottom">
       <li class="has-dropdown">
-        <a href="">Custom Shop</a>
+        <a href="/collection/custom-cooler-shop/">Custom Shop</a>
         <div class="bottom-dropdown-menu">
           <div class="bottom-dropdown-menu-wrapper">
             <div class="bottom-dropdown-menu-heading">
@@ -133,21 +133,63 @@
             </div>
 
             <div class="bottom-dropdown-menu-bottom">
-              <a href="">START HERE >>></a>
+              <a href="/collections/custom-cooler-shop" title="Custom Cooler Shop">START HERE >>></a>
             </div>
 
           </div>
         </div>
       </li>
 
-      <li class="has-dropdown"><a href="">Soft Coolers</a></li>
-      <li class="has-dropdown"><a href="">Hard Coolers</a></li>
-      <li><a href="">Backpack Coolers</a></li>
-      <li><a href="">Topper 20</a></li>
-      <li><a href="">Medical Coolers</a></li>
-      <li><a href="">Meal Prep Coolers</a></li>
-      <li><a href="">Drinkware</a></li>
-      <li class="has-dropdown"><a href="">Accessories</a></li>
+      <li class="has-dropdown"><a href="/collections/soft-coolers/">Soft Coolers</a>
+      
+      <div class="bottom-dropdown-menu">
+          <div class="bottom-dropdown-menu-wrapper">
+            
+			<div class="bottom-dropdown-menu-heading">
+       		     <h3>Polar Bear Original Nylon and Deluxe Soft Coolers</h3>
+            </div>
+            
+            <div class="bottom-dropdown-menu-body">
+              
+              <div class="bottom-dropdown-menu-body--left grid-2">
+                
+                <p>The Original Insulation Sensation: Superior insulation qualities give you long lasting performance, enabling you to keep colder longer.</p>
+              </div>
+              
+              <div class="bottom-dropdown-menu-body--right grid-2">
+                
+                
+              </div>
+              
+              <div class="bottom-dropdown-menu-body--left grid-2">
+                
+                <p>The Deluxe Insulation Sensation: The Polar Bear Deluxe Series coolers will hold ice for 3+ DAYS. It's the most well insulated soft cooler ever made!</p>
+              </div>
+              
+              <div class="bottom-dropdown-menu-body--right grid-2">
+                
+              </div>
+              
+            </div>
+            
+            <div class="bottom-dropdown-menu-bottom">
+              	<a href="/collections/soft-coolers/" title="Shop All Soft Coolers">Shop All Soft Coolers >>></a>
+           	</div>
+            
+
+          </div>
+        </div>
+      
+	  </li>
+      
+      
+      <li class="has-dropdown"><a href="/collections/hard-coolers/">Hard Coolers</a></li>
+      <li><a href="/collections/backpack-coolers/">Backpack Coolers</a></li>
+      <li><a href="/products/polar-bear-topper-20/">Topper 20</a></li>
+      <li><a href="/collections/medical-coolers/">Medical Coolers</a></li>
+      <li><a href="/collections/meal-prep-bags/">Meal Prep Coolers</a></li>
+      <li><a href="/collections/drinkware/">Drinkware</a></li>
+      <li class="has-dropdown"><a href="/collections/accessories/">Accessories</a></li>
     </ul>
 
     <!-- Shop Category Dropdown -->
@@ -155,17 +197,17 @@
       <div class="header-shop-category-dropdown__inner">
         <div class="shop-category-dropdown-left">
           <ul>
-            <li><a href="">Custom Shop</a></li>
-            <li><a data-value="shop-category-soft-coolers" href="">Soft Coolers</a></li>
-            <li><a data-value="shop-category-hard-coolers" href="">Hard Coolers</a></li>
-            <li><a data-value="shop-category-backpack-coolers" href="">Backpack Coolers</a></li>
-            <li><a href="">Topper 20</a></li>
-            <li><a data-value="shop-category-polar-bear-lifestyle" href="">Polar Bear Lifestyle</a></li>
-            <li><a data-value="shop-category-medical-coolers" href="">Medical Coolers</a></li>
-            <li><a href="">Drinkware</a></li>
-            <li><a href="">Apparel</a></li>
-            <li><a data-value="shop-category-accessories" href="">Accessories</a></li>
-            <li><a href="">Meal Prep Coolers</a></li>
+            <li><a href="/collections/custom-cooler-shop/">Custom Shop</a></li>
+            <li><a data-value="shop-category-soft-coolers" href="/collections/soft-coolers/">Soft Coolers</a></li>
+            <li><a data-value="shop-category-hard-coolers" href="/collections/hard-coolers/">Hard Coolers</a></li>
+            <li><a data-value="shop-category-backpack-coolers" href="/collections/backpack-coolers/">Backpack Coolers</a></li>
+            <li><a href="/products/polar-bear-topper-20/">Topper 20</a></li>
+            <li><a data-value="shop-category-polar-bear-lifestyle" href="/collections/polar-bear-lifestyle/">Polar Bear Lifestyle</a></li>
+            <li><a data-value="shop-category-medical-coolers" href="/collections/medical-coolers/">Medical Coolers</a></li>
+            <li><a href="/collections/drinkware/">Drinkware</a></li>
+            <li><a href="/collections/apparel/">Apparel</a></li>
+            <li><a data-value="shop-category-accessories" href="/collections/accessories/">Accessories</a></li>
+            <li><a href="/collections/meal-prep-bags/">Meal Prep Coolers</a></li>
           </ul>
         </div>
         <div class="shop-category-dropdown-right">
@@ -202,14 +244,14 @@
 
           <div class="category-dropdown-right-item" data-value="shop-category-polar-bear-lifestyle">
             <ul>
-              <li><a href="">Groomsman Gift Coolers</a></li>
-              <li><a href="">Boat Coolers</a></li>
-              <li><a href="">Camping Coolers</a></li>
-              <li><a href="">Fishing Coolers</a></li>
-              <li><a href="">Hiking Coolers</a></li>
-              <li><a href="">Golf Coolers</a></li>
-              <li><a href="">Racing Coolers</a></li>
-              <li><a href="">Marine Coolers</a></li>
+              <li><a href="/collections/groomsman-gift=coolers/">Groomsman Gift Coolers</a></li>
+              <li><a href="/collections/boat-coolers/">Boat Coolers</a></li>
+              <li><a href="/collections/camping-coolers/">Camping Coolers</a></li>
+              <li><a href="/collections/fishing-coolers/">Fishing Coolers</a></li>
+              <li><a href="/collections/hiking-coolers/">Hiking Coolers</a></li>
+              <li><a href="/collections/golf-coolers/">Golf Coolers</a></li>
+              <li><a href="/collections/race-track-coolers/">Racing Coolers</a></li>
+              <li><a href="/collections/marine-coolers/">Marine Coolers</a></li>
             </ul>
           </div>
 

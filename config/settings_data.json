@@ -1,6 +1,21 @@
 {
   "current": {
     "color_text": "#ffffff",
+    "color_body_text": "#4a4a4a",
+    "type_header_font": "poppins_n4",
+    "type_base_font": "poppins_n3",
+    "predictive_search_show_price": true,
+    "social_twitter_link": "https:\/\/twitter.com\/PolarBearCooler",
+    "social_facebook_link": "https:\/\/www.facebook.com\/PolarBearCooler\/",
+    "social_pinterest_link": "https:\/\/www.pinterest.com\/polarbearcooler\/",
+    "social_instagram_link": "https:\/\/www.instagram.com\/polarbearcoolers\/",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "https:\/\/www.youtube.com\/results?search_query=polar+bear+coolers",
+    "social_vimeo_link": "",
+    "favicon": "shopify:\/\/shop_images\/favicon.jpg",
+    "checkout_logo_image": "shopify:\/\/shop_images\/polarbearcoolers-logo.png",
+    "checkout_logo_position": "center",
     "sections": {
       "header": {
         "type": "header",
@@ -14,18 +29,6 @@
           "message_text": "Announce something here",
           "color_bg": "#3a3a3a",
           "color_text": "#ffffff"
-        }
-      },
-      "hero-1": {
-        "type": "hero",
-        "settings": {
-          "alignment": "center",
-          "hero_layout": "full_width",
-          "hero_size": "large",
-          "text_size": "large",
-          "title": "Image with text overlay",
-          "text": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.<\/p>",
-          "button_label": ""
         }
       },
       "feature-row": {
@@ -87,18 +90,6 @@
           "rows": 2,
           "show_vendor": false,
           "show_view_all": false
-        }
-      },
-      "hero-2": {
-        "type": "hero",
-        "settings": {
-          "alignment": "center",
-          "hero_layout": "full_width",
-          "hero_size": "medium",
-          "text_size": "large",
-          "title": "Image with text overlay",
-          "text": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.<\/p>",
-          "button_label": ""
         }
       },
       "quotes": {
@@ -169,44 +160,140 @@
           "section_height": "medium"
         }
       },
-      "footer": {
-        "type": "footer",
+      "1605299613b478a099": {
+        "type": "home-slideshow",
         "blocks": {
-          "footer-0": {
-            "type": "link_list",
+          "1605299613b478a099-0": {
+            "type": "image",
             "settings": {
-              "title": "Quick links",
-              "menu": "footer"
+              "image": "shopify:\/\/shop_images\/topper-20.jpg",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": ""
             }
           },
-          "footer-1": {
-            "type": "newsletter",
+          "1605299613b478a099-1": {
+            "type": "image",
             "settings": {
-              "title": "Newsletter"
+              "image": "shopify:\/\/shop_images\/Final-Hero-Image-1.jpg",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": ""
+            }
+          },
+          "6aa57314-b435-40f0-91d3-41918db51f5a": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/sfnt3.jpg",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": ""
             }
           }
         },
         "block_order": [
-          "footer-0",
-          "footer-1"
+          "1605299613b478a099-0",
+          "1605299613b478a099-1",
+          "6aa57314-b435-40f0-91d3-41918db51f5a"
         ],
         "settings": {
-          "show_payment_icons": true,
-          "color_footer_bg": "#f6f6f6",
-          "color_footer_text": "#333232",
-          "show_locale_selector": true,
-          "show_currency_selector": true
+          "slideshow_height": "adapt",
+          "text_size": "medium",
+          "text_alignment": "center center",
+          "show_overlay": false,
+          "autorotate": false,
+          "autorotate_speed": 5
+        }
+      },
+      "1605303420c65a11fc": {
+        "type": "home-featured-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/details1.jpg",
+          "image_link": "shopify:\/\/products\/pbc-reusable-ice-pack",
+          "layout": "right",
+          "title": "Polar Bear Hard Coolers – The HARD Insulation Sensation.",
+          "text_image": "shopify:\/\/shop_images\/hard-sfnt.jpg",
+          "text": "<p>In the world of keeping cool, you are only as good as your gear. Duration is the name of the game, and no matter what your game is, you can count on Polar Bear Coolers to get you there. Tough, rugged and durable, Nothing Keeps Cool Like a Polar Bear! We went the extra mile in developing the Polar Bear Hard Cooler line. We built value in to every part from top to bottom. Value we knew you would appreciate, at a price that you can afford. Because for us, it’s not a game unless you win! If this sounds like your game plan, then this is the cooler you have been waiting for. Not just bear proof – Polar Bear Proof<\/p>",
+          "button_label": "Shop Now",
+          "button_link": "shopify:\/\/products\/pbc-reusable-ice-pack"
+        }
+      },
+      "1605305921e54db9b1": {
+        "type": "home-featured-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/details2.jpg",
+          "image_link": "shopify:\/\/products\/pbc-reusable-ice-pack",
+          "layout": "left",
+          "title": "Polar Bear Deluxe Soft Coolers – The DELUXE Insulation Sensation.",
+          "text_image": "shopify:\/\/shop_images\/deluxe-sfnt.jpg",
+          "text": "<p>We didn’t need to go over the top, but we did anyway. Our all-new Deluxe Soft Cooler line is built for those who want the absolute highest performing soft cooler on the market today. The Deluxe features industry leading 3-Day chill time, YKK Splash-Guard Zipper, carabiner daisy chain, stainless-steel tie-down points and built-in bottle openers. Available in both zip down the middle and flip-top configurations.<\/p><p><a href=\"https:\/\/www.polarbearcoolers.com\/product-category\/deluxe\/\">SHOP NOW<\/a><\/p><p><br\/><\/p>",
+          "button_label": "Shop Now",
+          "button_link": "shopify:\/\/products\/pbc-reusable-ice-pack"
+        }
+      },
+      "1605305959b579f0f7": {
+        "type": "home-featured-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/sfntk3.jpg",
+          "image_link": "shopify:\/\/products\/pbc-reusable-ice-pack",
+          "layout": "right",
+          "title": "It's THE ORIGINAL Insulation sensation. Everything you need nothing you don’t. Satisfaction guaranteed!",
+          "text_image": "shopify:\/\/shop_images\/original-sfnt.jpg",
+          "text": "<p>THE ORIGINAL performance soft cooler. Quality like no other from the brand you can trust. See touch and feel the Polar Bear difference. The original comes equipped with a leak proof \/ sweat proof food grade liner, The toughest and strongest easy to clean interior liner you can own, YKK Heavy duty #10 zipper and built-in bottle openers. One great thing about the original is that it meets all the requirements of a performance soft cooler and it can be monogrammed or embroidered with your logo.<\/p>",
+          "button_label": "Shop Now",
+          "button_link": "shopify:\/\/products\/pbc-reusable-ice-pack"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "d0ab3de1-e8f5-466d-94d4-6d06cd344a67": {
+            "type": "text",
+            "settings": {
+              "title": "Resources",
+              "menu": "resources"
+            }
+          },
+          "748415c3-18b3-4fea-be65-8f220bfa3c40": {
+            "type": "text",
+            "settings": {
+              "title": "Account Info",
+              "menu": "account-info"
+            }
+          },
+          "7346cca6-2fc3-4aae-9f66-30edfb72df55": {
+            "type": "text",
+            "settings": {
+              "title": "Help & Orders",
+              "menu": "help-orders"
+            }
+          }
+        },
+        "block_order": [
+          "d0ab3de1-e8f5-466d-94d4-6d06cd344a67",
+          "748415c3-18b3-4fea-be65-8f220bfa3c40",
+          "7346cca6-2fc3-4aae-9f66-30edfb72df55"
+        ],
+        "settings": {
+          "footer_logo": "shopify:\/\/shop_images\/footer-logo.png",
+          "footer_hours": "M-F 9:00AM  - 5:00PM EST",
+          "color_footer_bg": "#333333",
+          "color_footer_text": "#ffffff",
+          "color_subscription_btn": "#fcae46",
+          "color_subscription_hover_btn": "#e17824",
+          "color_footer_link_text": "#ff830f",
+          "color_footer_link_hover_text": "#ffffff"
         }
       }
     },
     "content_for_index": [
-      "hero-1",
-      "feature-row",
-      "feature-columns",
-      "collection",
-      "hero-2",
-      "quotes",
-      "image-bar"
+      "1605299613b478a099",
+      "1605303420c65a11fc",
+      "1605305921e54db9b1",
+      "1605305959b579f0f7"
     ]
   },
   "presets": {
@@ -311,26 +398,6 @@
             "image-bar-2"
           ],
           "settings": {}
-        },
-        "footer": {
-          "type": "footer",
-          "blocks": {
-            "footer-0": {
-              "type": "link_list",
-              "settings": {}
-            },
-            "footer-1": {
-              "type": "newsletter",
-              "settings": {}
-            }
-          },
-          "block_order": [
-            "footer-0",
-            "footer-1"
-          ],
-          "settings": {
-            "show_payment_icons": true
-          }
         }
       },
       "content_for_index": [
@@ -551,32 +618,6 @@
           "type": "cart-template",
           "settings": {
             "cart_notes_enable": false
-          }
-        },
-        "footer": {
-          "type": "footer",
-          "blocks": {
-            "link_list": {
-              "type": "link_list",
-              "settings": {}
-            },
-            "text": {
-              "type": "text",
-              "settings": {}
-            },
-            "newsletter": {
-              "type": "newsletter",
-              "settings": {}
-            }
-          },
-          "block_order": [
-            "link_list",
-            "text",
-            "newsletter"
-          ],
-          "settings": {
-            "color_footer_bg": "#f8f8f8",
-            "color_footer_text": "#6d6d6d"
           }
         }
       },
