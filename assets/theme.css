@@ -1795,14 +1795,7 @@ select,
   padding-top: 8px;
   padding-left: 15px;
   padding-bottom: 8px; }
-  @media only screen and (min-width: 750px) {
-    
-    select,
-    .disclosure__toggle {
-      padding-top: 10px;
-      padding-left: 18px;
-      padding-bottom: 10px; } }
-
+  
 .select-group {
   position: relative;
   z-index: 2; }
@@ -5390,8 +5383,6 @@ hr {
 
 /*================ Module | Filters and Sort toolbar and selection ================*/
 .filters-toolbar-wrapper {
-  border-bottom: 1px solid var(--color-border);
-  border-top: 1px solid var(--color-border);
   margin-bottom: 22px; }
   @media only screen and (min-width: 750px) {
     .filters-toolbar-wrapper {
@@ -5460,17 +5451,8 @@ hr {
     flex-grow: 0; } }
 
 @media only screen and (max-width: 749px) {
-  .filters-toolbar__item-child:first-child {
-    margin-right: 2.5rem; } }
-
-@media only screen and (min-width: 750px) {
-  .filters-toolbar__item-child:first-child {
-    margin-right: 3rem; } }
-
-@media only screen and (max-width: 749px) {
   .filters-toolbar__item-child .filters-toolbar__input {
     padding-left: 0;
-    padding-right: 25px;
     width: 100%; } }
 
 .filters-toolbar__item-wrapper {
@@ -5520,14 +5502,11 @@ hr {
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 100%;
-  height: 55px;
   opacity: 1;
   position: relative; }
   .filters-toolbar__item:first-child .filters-toolbar__input {
     padding-left: 0; }
   @media only screen and (max-width: 749px) {
-    .filters-toolbar__input {
-      height: 46px; } }
   .filters-toolbar__input.hidden {
     opacity: 0; }
   .filters-toolbar__input option {
