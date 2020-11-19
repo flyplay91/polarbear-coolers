@@ -22,22 +22,27 @@ $(document).ready(function() {
 			$target.addClass('open').siblings().removeClass('open');
 		});
 
-	 $('.product-main-image').slick({
+	$('.product-main-image').on('init', function(event, slick){
+    $('.product-main-image.slick-initialized').css({'opacity': '1', 'visibility': 'visible'});
+	});
+
+	$('.product-thumb-images').on('init', function(event, slick){
+    $('.product-thumb-images.slick-initialized').css({'opacity': '1', 'visibility': 'visible'});
+	});
+
+ 	$('.product-main-image').slick({
 	  slidesToShow: 1,
 	  slidesToScroll: 1,
 	  arrows: false,
 	  fade: true,
 	  asNavFor: '.product-thumb-images',
-
 	});
 	$('.product-thumb-images').slick({
-	  slidesToShow: 5,
+	  slidesToShow: 3,
 	  slidesToScroll: 1,
 	  asNavFor: '.product-main-image',
-	  dots: true,
-	  centerMode: true,
-	  focusOnSelect: true,
+	  dots: false,
 	  vertical: true,
-	  verticalSwiping: true,
+	  verticalSwiping: true
 	});
 });

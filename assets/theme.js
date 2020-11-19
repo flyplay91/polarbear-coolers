@@ -8742,24 +8742,24 @@ theme.Product = (function() {
           "'])"
       );
 
-      currentMedia.dispatchEvent(
-        new CustomEvent('mediaHidden', {
-          bubbles: true,
-          cancelable: true
-        })
-      );
-      newMedia.classList.remove(this.classes.hidden);
-      newMedia.dispatchEvent(
-        new CustomEvent('mediaVisible', {
-          bubbles: true,
-          cancelable: true
-        })
-      );
-      otherMedia.forEach(
-        function(el) {
-          el.classList.add(this.classes.hidden);
-        }.bind(this)
-      );
+      // currentMedia.dispatchEvent(
+      //   new CustomEvent('mediaHidden', {
+      //     bubbles: true,
+      //     cancelable: true
+      //   })
+      // );
+      // newMedia.classList.remove(this.classes.hidden);
+      // newMedia.dispatchEvent(
+      //   new CustomEvent('mediaVisible', {
+      //     bubbles: true,
+      //     cancelable: true
+      //   })
+      // );
+      // otherMedia.forEach(
+      //   function(el) {
+      //     el.classList.add(this.classes.hidden);
+      //   }.bind(this)
+      // );
     },
 
     _handleMediaFocus: function(evt) {
