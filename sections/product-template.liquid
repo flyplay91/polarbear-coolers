@@ -9,7 +9,6 @@
     Get first variant, or deep linked one
   {% endcomment %}
   {%- assign current_variant = product.selected_or_first_available_variant -%}
-  {%- assign product_image_zoom_size = '1024x1024' -%}
   {%- assign product_image_scale = '2' -%}
   {%- assign compare_at_price = current_variant.compare_at_price -%}
   {%- assign price = current_variant.price -%}
@@ -51,6 +50,7 @@
 
       <ul class="product-thumb-images">
         {% for media in product.media %}
+
           {%- capture thumbnailAlt -%}
             {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
               {{ 'sections.featured_product.video_thumbnail_alt' | t: imageAlt: media.alt | escape }}
@@ -64,6 +64,7 @@
           <img src="{{ media.preview_image | img_url: '110x110', scale: 2 }}" alt="{{ thumbnailAlt }}">
             
         {% endfor %}
+
       </ul>
     </div>
 

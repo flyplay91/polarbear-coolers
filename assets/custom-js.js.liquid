@@ -22,6 +22,7 @@ $(document).ready(function() {
 			$target.addClass('open').siblings().removeClass('open');
 		});
 
+
 	$('.product-main-image').on('init', function(event, slick){
     $('.product-main-image.slick-initialized').css({'opacity': '1', 'visibility': 'visible'});
 	});
@@ -38,7 +39,7 @@ $(document).ready(function() {
 	  asNavFor: '.product-thumb-images',
 	});
 	$('.product-thumb-images').slick({
-	  slidesToShow: 3,
+	  slidesToShow: 5,
 	  slidesToScroll: 1,
 	  asNavFor: '.product-main-image',
 	  dots: false,
