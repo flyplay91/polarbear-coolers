@@ -50,19 +50,19 @@
 
       <ul class="product-thumb-images">
         {% for media in product.media %}
+          <li class="product-single__thumbnails-item product-single__thumbnails-item--{{ section.settings.media_size }}">
+            {%- capture thumbnailAlt -%}
+              {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
+                {{ 'sections.featured_product.video_thumbnail_alt' | t: imageAlt: media.alt | escape }}
+              {%- elsif media.media_type == 'model' -%}
+                {{ 'sections.featured_product.model_thumbnail_alt' | t: imageAlt: media.alt | escape }}
+              {%- else -%}
+                {{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: media.alt | escape }}
+              {%- endif -%}
+            {%- endcapture -%}
 
-          {%- capture thumbnailAlt -%}
-            {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
-              {{ 'sections.featured_product.video_thumbnail_alt' | t: imageAlt: media.alt | escape }}
-            {%- elsif media.media_type == 'model' -%}
-              {{ 'sections.featured_product.model_thumbnail_alt' | t: imageAlt: media.alt | escape }}
-            {%- else -%}
-              {{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: media.alt | escape }}
-            {%- endif -%}
-          {%- endcapture -%}
-
-          <img src="{{ media.preview_image | img_url: '110x110', scale: 2 }}" alt="{{ thumbnailAlt }}">
-            
+            <img src="{{ media.preview_image | img_url: '110x110', scale: 2 }}" alt="{{ thumbnailAlt }}">
+            </li> 
         {% endfor %}
 
       </ul>
