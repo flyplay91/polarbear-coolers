@@ -980,6 +980,158 @@ ul.grid--view-items {
   }
 
 
+/* ===== Product Page ===== */
+@media only screen and (min-width: 1440px) {
+  .grid {
+  /* Whole */
+  .large-up--one-whole {
+    width: 100%; }
+  /* Halves */
+  .large-up--one-half {
+    width: 50%; }
+  /* Thirds */
+  .large-up--one-third {
+    width: 33.33333%; }
+  .large-up--two-thirds {
+    width: 66.66667%; }
+  /* Quarters */
+  .large-up--one-quarter {
+    width: 25%; }
+  .large-up--two-quarters {
+    width: 50%; }
+  .large-up--three-quarters {
+    width: 75%; }
+  /* Fifths */
+  .large-up--one-fifth {
+    width: 20%; }
+  .large-up--two-fifths {
+    width: 40%; }
+  .large-up--three-fifths {
+    width: 60%; }
+  .large-up--four-fifths {
+    width: 80%; }
+  /* Sixths */
+  .large-up--one-sixth {
+    width: 16.66667%; }
+  .large-up--two-sixths {
+    width: 33.33333%; }
+  .large-up--three-sixths {
+    width: 50%; }
+  .large-up--four-sixths {
+    width: 66.66667%; }
+  .large-up--five-sixths {
+    width: 83.33333%; }
+  /* Eighths */
+  .large-up--one-eighth {
+    width: 12.5%; }
+  .large-up--two-eighths {
+    width: 25%; }
+  .large-up--three-eighths {
+    width: 37.5%; }
+  .large-up--four-eighths {
+    width: 50%; }
+  .large-up--five-eighths {
+    width: 62.5%; }
+  .large-up--six-eighths {
+    width: 75%; }
+  .large-up--seven-eighths {
+    width: 87.5%; }
+  /* Tenths */
+  .large-up--one-tenth {
+    width: 10%; }
+  .large-up--two-tenths {
+    width: 20%; }
+  .large-up--three-tenths {
+    width: 30%; }
+  .large-up--four-tenths {
+    width: 40%; }
+  .large-up--five-tenths {
+    width: 50%; }
+  .large-up--six-tenths {
+    width: 60%; }
+  .large-up--seven-tenths {
+    width: 70%; }
+  .large-up--eight-tenths {
+    width: 80%; }
+  .large-up--nine-tenths {
+    width: 90%; }
+  /* Twelfths */
+  .large-up--one-twelfth {
+    width: 8.33333%; }
+  .large-up--two-twelfths {
+    width: 16.66667%; }
+  .large-up--three-twelfths {
+    width: 25%; }
+  .large-up--four-twelfths {
+    width: 33.33333%; }
+  .large-up--five-twelfths {
+    width: 41.66667%; }
+  .large-up--six-twelfths {
+    width: 50%; }
+  .large-up--seven-twelfths {
+    width: 58.33333%; }
+  .large-up--eight-twelfths {
+    width: 66.66667%; }
+  .large-up--nine-twelfths {
+    width: 75%; }
+  .large-up--ten-twelfths {
+    width: 83.33333%; }
+  .large-up--eleven-twelfths {
+    width: 91.66667%; }
+  .grid--uniform .large-up--one-half:nth-child(2n+1),
+  .grid--uniform .large-up--one-third:nth-child(3n+1),
+  .grid--uniform .large-up--one-quarter:nth-child(4n+1),
+  .grid--uniform .large-up--one-fifth:nth-child(5n+1),
+  .grid--uniform .large-up--one-sixth:nth-child(6n+1),
+  .grid--uniform .large-up--two-sixths:nth-child(3n+1),
+  .grid--uniform .large-up--three-sixths:nth-child(2n+1),
+  .grid--uniform .large-up--one-eighth:nth-child(8n+1),
+  .grid--uniform .large-up--two-eighths:nth-child(4n+1),
+  .grid--uniform .large-up--four-eighths:nth-child(2n+1),
+  .grid--uniform .large-up--five-tenths:nth-child(2n+1),
+  .grid--uniform .large-up--one-twelfth:nth-child(12n+1),
+  .grid--uniform .large-up--two-twelfths:nth-child(6n+1),
+  .grid--uniform .large-up--three-twelfths:nth-child(4n+1),
+  .grid--uniform .large-up--four-twelfths:nth-child(3n+1),
+  .grid--uniform .large-up--six-twelfths:nth-child(2n+1) {
+    clear: both; }
+  .large-up--show {
+    display: block !important; }
+  .large-up--hide {
+    display: none !important; }
+  .large-up--text-left {
+    text-align: left !important; }
+  .large-up--text-right {
+    text-align: right !important; }
+  .large-up--text-center {
+    text-align: center !important; } 
+  }
+}
 
+.product-single__media-group {
+  display: flex;
+  [data-thumbnail-slider] {
+    order: -1;
+    width: 100px;
+    margin-right: 15px;
+    .thumbnails-wrapper {
+      top: 0;
+    }
+    .slider-active .product-single__thumbnails {
+      max-width: 100%;
+    }
+    .product-single__thumbnails-item-slide {
+      border: 1px solid #ededed;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+  }
+  .product-single__media-wrapper {
+    border: 1px solid #ededed;
+    padding: 20px;
+  }
+}
 
-
+.product-single__info-group {
+  padding-left: 75px;
+}
