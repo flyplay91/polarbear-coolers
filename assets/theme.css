@@ -990,6 +990,12 @@ textarea {
   .medium-up--one-half {
     width: 50%;
   }
+  .medium-up--one-half-product-image {
+    width: 58.333%;
+  }
+  .medium-up--one-half-product-description {
+    width: 41.666%;
+  }
   /* Thirds */
   .medium-up--one-third {
     width: 33.33333%;

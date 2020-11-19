@@ -21,8 +21,8 @@
       {%- assign product_description_width = 'medium-up--two-thirds' -%}
       {%- assign height = 345 -%}
     {% when 'medium' %}
-      {%- assign product_media_width = 'medium-up--one-half' -%}
-      {%- assign product_description_width = 'medium-up--one-half' -%}
+      {%- assign product_media_width = 'medium-up--one-half-product-image' -%}
+      {%- assign product_description_width = 'medium-up--one-half-product-description' -%}
       {%- assign height = 530 -%}
     {% when 'large' %}
       {%- assign product_media_width = 'medium-up--two-thirds' -%}
@@ -37,7 +37,7 @@
 
   <div class="grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.media_size }}-media{% endif %}">
 
-    <div class="grid__item product-single__media-group {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
+    <div class="grid__item product-single__media-group product-image-slider {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
       {% comment %}
       {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
       {% endcomment %}
