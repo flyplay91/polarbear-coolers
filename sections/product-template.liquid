@@ -27,7 +27,7 @@
     {% when 'large' %}
       {%- assign product_media_width = 'medium-up--two-thirds' -%}
       {%- assign product_description_width = 'medium-up--one-third' -%}
-      {%- assign height = 720 -%}
+      {%- assign height = 1090 -%}
     {% when 'full' %}
       {%- assign product_media_width = '' -%}
       {%- assign product_description_width = '' -%}
@@ -178,7 +178,7 @@
       {% endcomment %}
     </div>
 
-    <div class="grid__item {{ product_description_width }}">
+    <div class="grid__item product-single__info-group {{ product_description_width }}">
       <div class="product-single__meta">
 
         <h1 class="product-single__title">{{ product.title }}</h1>

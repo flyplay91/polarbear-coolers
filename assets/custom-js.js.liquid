@@ -5,19 +5,22 @@ $(document).ready(function() {
 		$('.category-dropdown-right-item[data-value="' + selected_shop_category + '"]').addClass('active');
 	});
 
-	$('body').on('click', '.header-middle--category button', function() {
-		$('.header-shop-category-dropdown').toggleClass('is-open');
-	});
-
-	$('body').on('click', '.header-middle--cart img', function() {
-
-		// $('.cart-popup-wrapper').addClass('is-transitioning').removeClass('cart-popup-wrapper--hidden');
-	});
-
-	$('body').on('click', '.header-middle--sign a', function() {
-		$('.header-login-form').toggleClass('active');
-	});
-
+	$('body')
+		.on('click', '.header-middle--category button', function() {
+			$('.header-shop-category-dropdown').toggleClass('is-open');
+		})
+		.on('click', '.header-middle--cart img', function() {
+			// $('.cart-popup-wrapper').addClass('is-transitioning').removeClass('cart-popup-wrapper--hidden');
+		})
+		.on('click', '.header-middle--sign a', function() {
+			$('.header-login-form').toggleClass('active');
+		})
+		.on('click', '.product-description-tabs a', function() {
+			let $el = $(this).parent();
+			let $target = $('.product-description-blocks').find('.' + $(this).data('target'));
+			$el.addClass('open').siblings().removeClass('open');
+			$target.addClass('open').siblings().removeClass('open');
+		});
 
 	 $('.product-main-image').slick({
 	  slidesToShow: 1,
