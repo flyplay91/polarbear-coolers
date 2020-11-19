@@ -8038,7 +8038,7 @@ theme.Product = (function() {
     this.mqlMediumUp.addListener(this.initDesktopBreakpoint);
 
     this.initMobileBreakpoint();
-    this.initDesktopBreakpoint();
+    // this.initDesktopBreakpoint();
     this._stringOverrides();
     this._initVariants();
     this._initMediaSwitch();
@@ -8115,6 +8115,7 @@ theme.Product = (function() {
           }.bind(this)
         );
       }
+      this._initThumbnailSlider();
     },
 
     _initVariants: function() {
@@ -8782,7 +8783,9 @@ theme.Product = (function() {
               type: 'slide',
               slideActiveClass: 'slick-active',
               slidesToShow: 3,
-              slidesToScroll: 3
+              slidesToScroll: 3,
+              vertical: true,
+              verticalSwiping: true
             }
           );
 
