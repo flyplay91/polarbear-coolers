@@ -3,6 +3,9 @@
 {% endcomment %}
 
 {% section 'product-template' %}
+
+{% include 'product-description-tabs' %}
+
 {% section 'product-recommendations' %}
 
 {% if collection %}
@@ -63,9 +66,5 @@
   ]
 }
 </script>
-<div class="product-reviews-block">
-  <div class="page-width">
-    <div id="wc_review_section" class="wc_review_main_content" data-url="{{ shop.url }}" data-handle="{{ product.handle }}" data-limit="0"></div>
-  </div>
-</div>
+
 
