@@ -27,14 +27,17 @@ $(document).ready(function() {
 	  slidesToScroll: 1,
 	  arrows: false,
 	  fade: true,
-	  asNavFor: '.product-thumb-images'
+	  asNavFor: '.product-thumb-images',
+
 	});
 	$('.product-thumb-images').slick({
-	  slidesToShow: 3,
+	  slidesToShow: 5,
 	  slidesToScroll: 1,
 	  asNavFor: '.product-main-image',
 	  dots: true,
 	  centerMode: true,
-	  focusOnSelect: true
+	  focusOnSelect: true,
+	  vertical: true,
+	  verticalSwiping: true,
 	});
 });
