@@ -9,9 +9,15 @@
     {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 <div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
-  <a class="grid-view-item__link grid-view-item__image-container collection-product-link" href="{{ product.url | within: collection }}">
+  <a class="grid-view-item__link grid-view-item__image-container collection-product-link" href="{{ product.url }}">
     <div class="collection-product-title-reviews">
-      <h4 class="collection-product-title">{{ product.title }}</h4>
+      <h4 class="collection-product-title">
+        {% if product.metafields.accentuate.short_title != blank %}
+          {{product.metafields.accentuate.short_title}}
+        {% else %}
+          {{product.title}}
+        {% endif %}
+      </h4>
       <div class="collection-product-reviews">
         <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
       </div>

@@ -68,11 +68,7 @@
     </dt>
     <dd>
       <span class="price-item price-item--sale">
-        {%- if product.price_varies -%}
-          {{ 'products.product.from_lowest_price_html' | t: lowest_price: money_price }}
-        {%- else -%}
-          {{ money_price }}
-        {%- endif -%}
+        {{ money_price }}
       </span>
     </dd>
     <div class="price__compare">
