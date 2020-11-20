@@ -7,12 +7,14 @@ $(document).ready(function() {
 
 	$('body')
 		.on('click', '.header-middle--category button', function() {
+			$(this).closest('.header-middle--category').toggleClass('active');
 			$('.header-shop-category-dropdown').toggleClass('is-open');
 		})
 		.on('click', '.header-middle--cart img', function() {
 			// $('.cart-popup-wrapper').addClass('is-transitioning').removeClass('cart-popup-wrapper--hidden');
 		})
 		.on('click', '.header-middle--sign a', function() {
+			$(this).closest('.header-middle--sign').toggleClass('active');
 			$('.header-login-form').toggleClass('active');
 		})
 		.on('click', '.product-description-tabs a', function() {

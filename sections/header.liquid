@@ -81,8 +81,8 @@
         </div>
         <div class="header-middle--category">
           <button>
-            Shop<br> Categories
-            <img src="{{'angle-arrow-down.png' | asset_url}}">
+            Shop Categories
+            {% include 'down-arrow' %}
           </button>
         </div>
         <div class="header-middle--search">
@@ -98,7 +98,7 @@
           <li class="header-middle--sign">
             <a href="javascript:void(0)">
               Sign In
-              <img src="{{'angle-arrow-down.png' | asset_url}}">
+              {% include 'down-arrow' %}
             </a>
           </li>
           <li class="header-middle--cart">
@@ -106,7 +106,7 @@
               Cart
               <span class="header-cart-count" data-cart-count>{{ cart.item_count }}</span>
             </a>
-            <img src="{{'angle-arrow-down.png' | asset_url}}">
+            {% include 'down-arrow' %}
           </li>
         </ul>
       </div>
