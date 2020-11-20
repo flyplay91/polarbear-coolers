@@ -164,16 +164,14 @@
           </div>
 
           <div class="product-single-qty-cart">
-            {% if section.settings.show_quantity_selector %}
             <div class="product-single-qty">
-              <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+              <label for="Quantity-{{ section.id }}">{{ 'products.product.qty' | t }}</label>
               <input type="number" id="Quantity-{{ section.id }}"
                 name="quantity" value="1" min="1" pattern="[0-9]*"
                 class="product-form__input product-form__input--quantity" data-quantity-input
               >
             </div>
-            {% endif %}
-
+            
             <div class="product-single-cart">
               <div class="product-form__controls-group product-form__controls-group--submit">
                 <div class="product-form__item product-form__item--submit

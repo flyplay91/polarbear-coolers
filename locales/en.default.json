@@ -384,6 +384,7 @@
       "msrp": "MSRP",
       "polar_price": "Polar Price",
       "quantity": "Quantity",
+      "qty": "Qty",
       "add_to_cart": "Add to cart",
       "loader_label": "Adding product to your cart",
       "back_to_collection": "Back to {{ title }}",
