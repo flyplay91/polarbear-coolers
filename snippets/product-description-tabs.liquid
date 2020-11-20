@@ -3,6 +3,7 @@
     <ul>
       <li class="open"><a data-target="product-description-block" href="#" class="">Description</a></li>
       <li class=""><a data-target="product-reviews-block" href="#" class="">Reviews</a></li>
+      <li class=""><a data-target="product-spec-block" href="#" class="">Spec</a></li>
       <li class=""><a data-target="product-details-block" href="#" class="">Product Details</a></li>
       <li class=""><a data-target="product-wholesale-block" href="#" class="">Wholesale</a></li>
       <li class=""><a data-target="product-warranty-block" href="#" class="">Warranty</a></li>
@@ -14,6 +15,9 @@
     </div>
     <div class="product-reviews-block">
       <div id="wc_review_section" class="wc_review_main_content" data-url="{{ shop.url }}" data-handle="{{ product.handle }}" data-limit="0"></div>
+    </div>
+    <div class="product-spec-block">
+      {{product.metafields.accentuate.spec}}
     </div>
     <div class="product-details-block">
       {{product.metafields.accentuate.product_details}}
