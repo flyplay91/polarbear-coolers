@@ -1369,6 +1369,56 @@
           "zh-CN": "https:\/\/vimeo.com\/shopify",
           "zh-TW": "https:\/\/vimeo.com\/shopify"
         }
+      },
+      {
+        "type": "text",
+        "id": "social_googleplus_link",
+        "label": {
+          "cs": "Google Plus",
+          "da": "Google Plus",
+          "de": "Google Plus",
+          "en": "Google Plus",
+          "es": "Google Plus",
+          "fi": "Google Plus",
+          "fr": "Google Plus",
+          "it": "Google Plus",
+          "ja": "Google Plus",
+          "ko": "Google Plus",
+          "nb": "Google Plus",
+          "nl": "Google Plus",
+          "pl": "Google Plus",
+          "pt-BR": "Google Plus",
+          "pt-PT": "Google Plus",
+          "sv": "Google Plus",
+          "th": "Google Plus",
+          "tr": "Google Plus",
+          "vi": "Google Plus",
+          "zh-CN": "Google Plus",
+          "zh-TW": "Google Plus"
+        },
+        "info": {
+          "cs": "https:\/\/google.com\/shopify",
+          "da": "https:\/\/google.com\/shopify",
+          "de": "https:\/\/google.com\/shopify",
+          "en": "https:\/\/google.com\/shopify",
+          "es": "https:\/\/google.com\/shopify",
+          "fi": "https:\/\/google.com\/shopify",
+          "fr": "https:\/\/google.com\/shopify",
+          "it": "https:\/\/google.com\/shopify",
+          "ja": "https:\/\/google.com\/shopify",
+          "ko": "https:\/\/google.com\/shopify",
+          "nb": "https:\/\/google.com\/shopify",
+          "nl": "https:\/\/google.com\/shopify",
+          "pl": "https:\/\/google.com\/shopify",
+          "pt-BR": "https:\/\/google.com\/shopify",
+          "pt-PT": "https:\/\/google.com\/shopify",
+          "sv": "https:\/\/google.com\/shopify",
+          "th": "https:\/\/google.com\/shopify",
+          "tr": "https:\/\/google.com\/shopify",
+          "vi": "https:\/\/google.com\/shopify",
+          "zh-CN": "https:\/\/google.com\/shopify",
+          "zh-TW": "https:\/\/google.com\/shopify"
+        }
       }
     ]
   },

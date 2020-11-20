@@ -690,8 +690,29 @@ button:focus {
     margin: 0 auto;
 
     .footer-subscription-block {
-      max-width: 600px;
+      max-width: 620px;
       margin: 0 auto;
+      .input-group__field {
+        flex-basis: 0;
+        margin-right: 5px;
+      }
+      .input-group__hint {
+        display: block;
+        width: 18px;
+        height: 18px;
+        border: 2px solid;
+        border-radius: 50%;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: bold;
+        color: #ff830f;
+        margin: 14px 0 0 20px;
+        &:hover {
+          color: #ffffff;
+        }
+      }
     }
 
     .footer-logo-links {
@@ -704,6 +725,15 @@ button:focus {
       .footer-logo-block {
         flex-basis: 33.333%;
         max-width: 33.333%;
+        padding-right: 30px;
+
+        > a {
+          width: 80%;
+          display: block;
+          .footer-logo-img {
+            width: 100%;
+          }
+        }
 
         .footer-time {
           margin-top: 10px;
@@ -719,6 +749,7 @@ button:focus {
             text-transform: uppercase;
             font-weight: 600;
             font-size: 16px;
+            color: #ffffff;
           }
         }
 

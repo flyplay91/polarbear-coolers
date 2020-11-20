@@ -90,6 +90,7 @@
               <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.btn' | t }}</span>
             </button>
           </span>
+          <a href="/opt-in.html" class="input-group__hint" title="More Info About this Program">?</a>
         </div>
         {% if form.errors contains 'email' %}
           <span id="{{ formId }}-email-error" class="input-error-message">
@@ -118,7 +119,7 @@
         </div>
         <div class="footer-social-block">
           <label>Social</label>
-          {%- assign socials = "Facebook Twitter Pinterest Instagram Tumblr Snapchat YouTube Vimeo" | split: ' ' -%}
+          {%- assign socials = "Facebook Twitter Pinterest Instagram GooglePlus Tumblr Snapchat YouTube Vimeo" | split: ' ' -%}
           {%- if social_icons -%}
             <ul class="footer-social">
               {%- for social in socials -%}
