@@ -435,7 +435,7 @@ a {
 
 b,
 strong {
-  font-weight: var(--font-weight-body--bolder);
+  font-weight: 600;
 }
 
 em {
