@@ -80,7 +80,7 @@
         </div>
 
         <div class="product-single-short-desc">
-          <p><b>The Insulation Sensation:</b> Superior insulation qualities give you long lasting performance, enabling you to keep colder longer. The Polar Bear Original Nylon 12 Pack Soft Cooler will keep ice frozen for 24+ hours in 100+ degree heat and is guaranteed to be leak proof / sweat proof.</p>
+          {{product.metafields.accentuate.short_description}}
         </div>
 
         <div class="product__price">
@@ -101,7 +101,7 @@
           </label>
 
           <div class="product-specification-image">
-            <img src="{{'12-pack-info-image.jpg' | asset_url}}">
+            <img src="{{ product.metafields.accentuate.specifications }}">
           </div>
         </div>
 
@@ -229,10 +229,6 @@
           data-has-only-default-variant="{{ product.has_only_default_variant }}"
           data-base-url="{{ shop.url }}{{ routes.root_url }}"
         >
-        </div>
-
-        <div class="product-single__description rte">
-          {{ product.description }}
         </div>
 
         {% if section.settings.show_share_buttons %}
