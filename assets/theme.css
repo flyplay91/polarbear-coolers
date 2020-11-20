@@ -2224,7 +2224,7 @@ a[href^="tel"] {
 
 .return-link-wrapper {
   margin-top: 82.5px;
-  margin-bottom: 0;
+  margin-bottom: 82.5px;;
 }
 
 @media only screen and (max-width: 749px) {

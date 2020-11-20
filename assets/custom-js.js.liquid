@@ -22,6 +22,18 @@ $(document).ready(function() {
 			let $target = $('.product-description-blocks').find('.' + $(this).data('target'));
 			$el.addClass('open').siblings().removeClass('open');
 			$target.addClass('open').siblings().removeClass('open');
+		})
+		.on('click', '.product-single-specifications', function() {
+			$(this).toggleClass('active');
+		})
+		.on('click', '.wc_product_review_badge', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			showReview();
+		})
+		.on('click', '.write-review', function(e) {
+			e.preventDefault();
+			showReviewForm();
 		});
 
 
@@ -51,16 +63,29 @@ $(document).ready(function() {
 	  verticalSwiping: true
 	});
 
-	$('body').on('click', '.product-single-specifications', function() {
-		$(this).toggleClass('active');
-	});
 
 
 
 
 });
 
+function showReview() {
+	const target = "product-reviews-block";
+	$('.product-description-tabs').find('li').removeClass('open').find(`[data-target="${target}"]`).parent().addClass('open');
+	$('.product-description-blocks').children().removeClass('open').filter(`.${target}`).addClass('open');
+	$('html, body').animate({
+     scrollTop: $("#wc_review_section").offset().top
+  }, 1000);
+}
 
-
+function showReviewForm() {
+	const target = "product-reviews-block";
+	$('.product-description-tabs').find('li').removeClass('open').find(`[data-target="${target}"]`).parent().addClass('open');
+	$('.product-description-blocks').children().removeClass('open').filter(`.${target}`).addClass('open');
+	$('#wc_product_review_form').show();
+	$('html, body').animate({
+     scrollTop: $("#wc_product_review_form").offset().top
+  }, 1000);
+}
 
 
