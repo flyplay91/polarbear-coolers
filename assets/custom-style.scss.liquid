@@ -994,7 +994,7 @@ ul.grid--view-items {
 
     .collection-product-link {
       margin-bottom: 50px;
-      padding: 10px;
+      padding: 20px;
 
       &:hover {
         box-shadow: 0px 0px 5px 0px rgba(51,51,51,0.55);
@@ -1213,7 +1213,7 @@ ul.grid--view-items {
   }
 
   .product-description {
-    margin-bottom: 50px;
+    margin-bottom: 150px;
   }
 }
 
@@ -1388,6 +1388,21 @@ ul.grid--view-items {
       max-height: 1000px;
       position: relative;
       transition: all 0.5s;
+    }
+    &.product-wholesale-block {
+      a {
+        display: block;
+        color: #6e6e6e;
+        font-weight: 700;
+        padding: 15px;
+        text-align: center;
+        border: solid 1px #6e6e6e;
+        margin-top: 10px;
+        &:hover {
+          background-color: #333;
+          color: #fff;
+        }
+      }
     }
     b {
       font-weight: bold;
@@ -1611,12 +1626,13 @@ ul.grid--view-items {
 }
 
 .product-recommendations__inner {
-  .section-header {
-    h2 {
-      text-align: left;
-      font-weight: 700;
-      text-transform: none;
-      font-size: 28px;
-    }
+  h2 {
+    text-align: left;
+    font-weight: 700;
+    text-transform: none;
+    font-size: 28px;
   }
 }
+
+
+
