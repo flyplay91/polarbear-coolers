@@ -36,7 +36,9 @@ button:focus {
 ul.header-bottom {margin-left:0px !important;}
 .product-description-block .d-w-50 {width:50%;float:left;}
 
-
+.d-w-50 {
+  width: 50%;
+}
 
 
 
@@ -1667,6 +1669,106 @@ ul.grid--view-items {
     font-weight: 700;
     text-transform: none;
     font-size: 28px;
+  }
+}
+
+/* ===== Normal Page Sidebar ===== */
+.normal-page-sidebar {
+  flex-basis: 16.666%;
+  max-width: 16.666%;
+  flex-direction: column;
+
+  h3 {
+    font-size: 18px;
+    line-height: 1.444;
+    padding-top: 18px;
+    border-bottom: solid 1px #d8d8d8;
+    padding-bottom: 15px;
+    font-weight: 700;
+  }
+
+  ul {
+    li {
+      a {
+        display: block;
+        padding: 0.5em 1em;
+        color: #0f0f0f;
+        font-size: 14px;
+      }
+
+      &.active a {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.normal-page-content {
+  flex-basis: 83.333%;
+  max-width: 83.333%;
+  padding-left: 16px;
+
+  > h1 {
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 16px;
+    border-bottom: solid 1px #d8d8d8;
+    padding-bottom: 25px;
+  }
+}
+
+/* ===== Contact Page ====== */
+.grid.page-wrapper {
+  margin-bottom: 50px;
+}
+.page-contact-inner {
+  display: flex;
+
+  .content-inner-left {
+    padding-right: 16px;
+  }
+
+  .content-inner-right {
+    padding-left: 16px;
+
+    input,
+    textarea {
+      width: 100%;
+
+      &.btn {
+        max-width: 300px;
+        padding: 20px;
+        margin-top: 20px;
+        font-size: 22px;
+      }
+    }
+  }
+
+  p {
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    line-height: 26px;
+  }
+
+  address {
+    color: #4a4a4a;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+    line-height: 28px;
+  }
+
+  a:hover {
+    color: #ccc;
+  }
+}
+
+/* ===== Page Video Reviews ===== */
+.page-video-reviews-inner {
+  iframe {
+    margin-bottom: 30px;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 

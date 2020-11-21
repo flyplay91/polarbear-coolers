@@ -1,0 +1,40 @@
+
+<h3>{{section.settings.sidebar_title}}</h3>
+<ul>
+	{% for block in section.blocks %}
+		<li><a href="{{block.settings.page_url}}">{{block.settings.page_title}}</a></li>
+	{% endfor %}
+</ul>
+
+
+{% schema %}
+{
+	"name": "Page Sidebar",
+	"class": "normal-page-sidebar",
+	"settings": [
+		{
+			"type": "text",
+			"id": "sidebar_title",
+			"label": "Sidebar Title"
+		}
+	],
+	"blocks": [
+		{
+			"type": "item",
+			"name": "link",
+			"settings": [
+				{
+					"type": "url",
+					"id": "page_url",
+					"label": "Page Url"
+				},
+				{
+					"type": "text",
+					"id": "page_title",
+					"label": "Page Title"
+				}
+			]
+		}
+	]
+}
+{% endschema %}
