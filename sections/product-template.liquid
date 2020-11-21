@@ -88,9 +88,19 @@
           {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
         </div>
 
+        {% if product.tags contains "6pack-soldout" %}
+        
+        <div class="out-stock-text">
+          Inventory Message: <span>**ALL 6 PACKS ARE SOLD OUT UNTIL DEC 15th</span>
+        </div>
+        
+        {% else %}
+        
         <div class="out-stock-text">
           Inventory Message: <span>If you cannot add to cart, then that color is out of stock.</span>
         </div>
+        
+        {% endif %}
 
         <div class="product-single-specifications">
           <label>
@@ -103,7 +113,9 @@
 
           <div class="product-specification-image">
             <img src="{{ product.metafields.accentuate.specifications }}">
+            {{ product.metafields.accentuate.spectext }}
           </div>
+
         </div>
 
         {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
@@ -124,7 +136,10 @@
         {%- endcapture %}
 
         {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
-          <span class="mw-product-options"></span>
+          <br />
+        <span class="mw-product-options"></span>
+        
+        <br />
           
           {% unless product.has_only_default_variant %}
             <div class="product-form__controls-group">

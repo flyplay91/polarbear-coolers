@@ -66,6 +66,7 @@
     <div class="collection-product-thumbnail">
       {% capture img_id %}VariantImage-{{ section.id }}-{{ product.id }}{% endcapture %}
       
+     {% if product.variants.size > 1 %}
       {% for variant in product.variants %}
         {% if variant != empty %}
           {%- assign variant_image = variant.image.src -%}
@@ -84,6 +85,7 @@
                 data-image>
         {% endif %}
       {% endfor %}
+      {% endif %}
     </div>
   </a>
 </div>

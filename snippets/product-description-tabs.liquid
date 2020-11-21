@@ -3,8 +3,8 @@
     <ul>
       <li class="open"><a data-target="product-description-block" href="#" class="">Description</a></li>
       <li class=""><a data-target="product-reviews-block" href="#" class="">Reviews</a></li>
-      <li class=""><a data-target="product-spec-block" href="#" class="">Spec</a></li>
-      <li class=""><a data-target="product-details-block" href="#" class="">Product Details</a></li>
+      <li class=""><a data-target="product-spec-block" href="#" class="">Specs</a></li>
+      {% if product.metafields.accentuate.product_details %}  <li class=""><a data-target="product-details-block" href="#" class="">Product Details</a></li>  {%endif%}
       <li class=""><a data-target="product-wholesale-block" href="#" class="">Wholesale</a></li>
       <li class=""><a data-target="product-warranty-block" href="#" class="">Warranty</a></li>
     </ul>
@@ -19,9 +19,12 @@
     <div class="product-spec-block">
       {{product.metafields.accentuate.spec}}
     </div>
+    
+   {% if product.metafields.accentuate.product_details %} 
     <div class="product-details-block">
       {{product.metafields.accentuate.product_details}}
     </div>
+    {%endif%}
     <div class="product-wholesale-block">
     	 There are great opportunities available with the Polar Bear Cooler line. Polar Bear Coolers are the highest quality soft coolers made and our success over the years just goes to show that if you give someone a quality product at a fair price, they will remember you for it. The fan mail speaks for itself. 
        <a href="wholesale-sign-up.html">Apply For Wholesale</a>
