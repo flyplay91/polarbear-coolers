@@ -136,8 +136,14 @@
         {%- endcapture %}
 
         {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
-          <br />
+          
         <span class="mw-product-options"></span>
+        
+        {% if product.tags contains 'submit-logo' %}
+          <a class="submit-logo-btn" href="javascript:void( window.open( 'https://form.jotform.com/200213682765049', 'blank', 'scrollbars=yes, toolbar=no, width=700, height=500' ) ) ">
+           Submit Your Logo Or Graphic
+          </a>
+        {% endif %}
         
         <br />
           

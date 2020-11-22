@@ -5752,7 +5752,7 @@ hr {
 .cart-popup__close .icon-close {
   width: 1rem;
   height: 1rem;
-  fill: currentColor;
+  fill: #444a4a;
 }
 
 .cart-popup__close:hover,

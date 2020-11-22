@@ -298,7 +298,7 @@
           "show_collection_image": true,
           "show_vendor": false,
           "sort_enable": true,
-          "tags_enable": true
+          "tags_enable": false
         }
       },
       "product-template": {
@@ -317,6 +317,56 @@
           "heading": "Most Like These Also",
           "show_vendor": false,
           "collection": "accessories"
+        }
+      },
+      "page-sidebar": {
+        "type": "page-sidebar",
+        "blocks": {
+          "69dc4f01-5a22-450e-abfe-37fcb376b5f4": {
+            "type": "item",
+            "settings": {
+              "page_url": "shopify:\/\/pages\/press-page",
+              "page_title": "Press Page"
+            }
+          },
+          "27f7d965-4647-47e0-896b-8c20b16bf3d9": {
+            "type": "item",
+            "settings": {
+              "page_url": "shopify:\/\/pages\/contact-us",
+              "page_title": "Contact Us"
+            }
+          },
+          "74fb5c4b-68e2-46af-863f-58f31a2e7534": {
+            "type": "item",
+            "settings": {
+              "page_url": "shopify:\/\/pages\/team-polar-bear",
+              "page_title": "Team Polar Bear"
+            }
+          },
+          "ca4240fc-39d9-4064-af0e-87f7e8e5bd26": {
+            "type": "item",
+            "settings": {
+              "page_url": "shopify:\/\/pages\/privacy-policy",
+              "page_title": "Privacy Policy"
+            }
+          },
+          "99146491-12ad-4566-abfb-2374c4247495": {
+            "type": "item",
+            "settings": {
+              "page_url": "shopify:\/\/pages\/shipping-and-return-policy",
+              "page_title": "Shipping & Return Policy"
+            }
+          }
+        },
+        "block_order": [
+          "69dc4f01-5a22-450e-abfe-37fcb376b5f4",
+          "27f7d965-4647-47e0-896b-8c20b16bf3d9",
+          "74fb5c4b-68e2-46af-863f-58f31a2e7534",
+          "ca4240fc-39d9-4064-af0e-87f7e8e5bd26",
+          "99146491-12ad-4566-abfb-2374c4247495"
+        ],
+        "settings": {
+          "sidebar_title": "Support"
         }
       }
     },

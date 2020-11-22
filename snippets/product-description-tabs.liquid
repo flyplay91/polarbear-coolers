@@ -3,7 +3,7 @@
     <ul>
       <li class="open"><a data-target="product-description-block" href="#" class="">Description</a></li>
       <li class=""><a data-target="product-reviews-block" href="#" class="">Reviews</a></li>
-      <li class=""><a data-target="product-spec-block" href="#" class="">Specs</a></li>
+      {% if product.metafields.accentuate.spec %}<li class=""><a data-target="product-spec-block" href="#" class="">Specs</a></li>{%endif%}
       {% if product.metafields.accentuate.product_details %}  <li class=""><a data-target="product-details-block" href="#" class="">Product Details</a></li>  {%endif%}
       <li class=""><a data-target="product-wholesale-block" href="#" class="">Wholesale</a></li>
       <li class=""><a data-target="product-warranty-block" href="#" class="">Warranty</a></li>
@@ -16,9 +16,12 @@
     <div class="product-reviews-block">
       <div id="wc_review_section" class="wc_review_main_content" data-url="{{ shop.url }}" data-handle="{{ product.handle }}" data-limit="0"></div>
     </div>
+    
+     {% if product.metafields.accentuate.spec %} 
     <div class="product-spec-block">
       {{product.metafields.accentuate.spec}}
     </div>
+    {%endif%}
     
    {% if product.metafields.accentuate.product_details %} 
     <div class="product-details-block">

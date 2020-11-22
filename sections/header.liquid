@@ -105,6 +105,11 @@
             <a href="/cart">
               Cart
               <span class="header-cart-count" data-cart-count>{{ cart.item_count }}</span>
+
+              <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %} critical-hidden" data-cart-count-bubble>
+                <span data-cart-count>{{ cart.item_count }}</span>
+                <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+              </div>
             </a>
             {% include 'down-arrow' %}
           </li>
@@ -228,8 +233,14 @@
       <a href="/collections/accessories/">Accessories</a>
       <div class="bottom-dropdown-menu accessories-dropdown">
         <ul>
-          <li><a href="/product-category/accessories/">Shop All Accessories</a></li>
-          <li><a href="/product-category/polarbearcoolers-ice-packs/">Ice Packs</a></li>
+          <li><a href="/collections/accessories/">Shop All Accessories</a></li>
+          <li><a href="/collections/polarbearcoolers-ice-packs/">Ice Packs</a></li>
+           <li><a href="/collections/apparel/">Apparel</a></li>
+           <li><a href="/collections/stickers/">Stickers</a></li>
+          <li><a href="/collections/cooler-accessories/">Cooler Accessories</a></li>
+           <li><a href="/collections/drink-accessories/">Drink Accessories</a></li>
+          
+           
         </ul>
       </div>
     </li>
