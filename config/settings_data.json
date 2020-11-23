@@ -384,6 +384,13 @@
           "blog_show_date": false,
           "show_share_buttons": true
         }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_ajax_enable": false,
+          "cart_notes_enable": true
+        }
       }
     },
     "content_for_index": [
