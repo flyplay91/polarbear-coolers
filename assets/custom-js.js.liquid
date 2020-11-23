@@ -48,6 +48,10 @@ $(document).ready(function() {
 		.on('click', '.shop-category-dropdown-right .back-main', function() {
 			$('.shop-category-dropdown-right').removeClass('active');
 			$('.shop-category-dropdown-left').addClass('active');
+		})
+		.on('click', '.header-middle--cart svg', function() {
+			$(this).toggleClass('active');
+			$('#sticky-slidedown-cart').toggleClass('active');
 		});
 
 
