@@ -63,14 +63,6 @@
     </dd>
   </div>
   <div class="price__sale">
-    <dt>
-      <span class="visually-hidden visually-hidden--inline">{{ 'products.product.sale_price' | t }}</span>
-    </dt>
-    <dd>
-      <span class="price-item price-item--sale">
-        {{ money_price }}
-      </span>
-    </dd>
     <div class="price__compare">
       <dt>
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
@@ -81,6 +73,15 @@
         </s>
       </dd>
     </div>
+    <dt>
+      <span class="visually-hidden visually-hidden--inline">{{ 'products.product.sale_price' | t }}</span>
+    </dt>
+    <dd>
+      <span class="price-item price-item--sale">
+        {{ money_price }}
+      </span>
+    </dd>
+    
   </div>
   <div class="price__unit">
     <dt>

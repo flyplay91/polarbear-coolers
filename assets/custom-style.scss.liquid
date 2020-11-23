@@ -45,6 +45,10 @@ ul.header-bottom {margin-left:0px !important;}
 .display-flex {
   display: flex;
 }
+.custom-logo-coolers .column h2 {
+  font-size:16px; 
+  font-weight:300;
+}
 .u-text-center {text-align:center;}
 .soft-coolers-description .row {display:flex;}
 .grid-view-item__image-wrapper .grid-view-item__image {
@@ -71,7 +75,7 @@ ul.header-bottom {margin-left:0px !important;}
   font-weight:500;
   text-align:center;
   border:0px !important;
-  letter-spacing:5px;
+  letter-spacing:1px;
   font-size:18px;
 }
 .personalize-monogram .button-option .button-value-container .button-value:hover,
@@ -86,15 +90,31 @@ ul.header-bottom {margin-left:0px !important;}
   text-align: left;
   font-weight: 700;
 }
-.custom-logo-coolers .rte {display:flex;}
-.grid-50 {width:50%;padding:0px 30px;}
-.u-text-bold {font-weight:bold;}
-.custom-logo-coolers h4 {font-size:23px;font-weight:300;}
+.custom-logo-coolers .rte {
+  display:flex;
+}
+.grid-50 {
+  width:50%;
+  padding:0px 15px 0px 0px;
+}
+.grid-66 {
+  width:66.6%;
+}
+.grid-33 {
+  width:33.3%;
+}
+.u-text-bold {
+  font-weight:bold;
+}
+.custom-logo-coolers h4 {
+  font-size:23px;font-weight:300;
+}
 .custom-logo-coolers h2 {
-  font-size:25px;font-weight:bold;
+  font-size:25px;
+  font-weight:bold;
 }
 p {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 300;
     line-height: 1.444;
 }
@@ -1796,6 +1816,7 @@ ul.grid--view-items {
   margin-bottom: 50px;
 }
 .page-contact-inner {
+  display: flex;
   .content-inner-left {
     padding-right: 16px;
   }
@@ -1867,6 +1888,52 @@ ul.grid--view-items {
 
   .fb-like.fb_iframe_widget {
     text-align: left;
+  }
+}
+
+/* ===== Press Pgae ====== */
+.page-press-inner {
+  h2 {
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    line-height: 50.4px;
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 36px;
+    letter-spacing: 0.8px;
+  } 
+
+  ul {
+    li {
+      color: #4a4a4a;
+    }
+  }
+
+  a {
+    color: #4a4a4a;
+    &:hover {
+      color: #ccc !important;
+    }
+  }
+}
+
+/* ===== Shipping & Policy Page ====== */
+.page-shipping-policy-inner {
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 28.8px;
+  }
+
+  a {
+    color: #4a4a4a;
+    &:hover {
+      color: #ccc !important;
+    }
   }
 }
 
