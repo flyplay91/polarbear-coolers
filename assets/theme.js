@@ -748,6 +748,16 @@ slate.Variants = (function() {
     _onSelectChange: function() {
       var variant = this._getVariantFromOptions();
 
+      // Triger Variant Image
+      var productThumbnailsCarousel = $('.product-thumb-images');
+      if(productThumbnailsCarousel.length > 0) {
+        let slideIndex = productThumbnailsCarousel.find('.slick-slide:not(.slick-cloned)[data-variant-ids*="' + variant.id + '"]').first().attr('data-thumbnail-index');
+        if(slideIndex >= 0) {
+          productThumbnailsCarousel.slick('slickGoTo', slideIndex);
+          var filterAttr = '[data-variant-ids*="' + variant.id + '"]';
+        }
+      }
+
       this.container.dispatchEvent(
         new CustomEvent('variantChange', {
           detail: {

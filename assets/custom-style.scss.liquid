@@ -1292,17 +1292,21 @@ ul.grid--view-items {
 
 /* ===== Product Page ===== */
 
-
+.short-des-popup {
+  
+}
 .product-image-slider {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
 
   .product-main-image {
-    width: 75%;
+    width: calc(100% - 105px);
     order: 2;
+    border: 1px solid #d4cccc;
     opacity: 0;
     visibility: hidden;
+    padding: 30px;
   }
 
   .product-thumb-images {
@@ -1537,11 +1541,6 @@ ul.grid--view-items {
         margin-left: -2px;
       }
     }
-  }
-  .product-main-image {
-    width: calc(100% - 105px);
-    order: 2;
-    border: 1px solid #d4cccc;
   }
 }
 

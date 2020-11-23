@@ -21,6 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style">
   
+  {{ 'magnific-popup.css' | asset_url | stylesheet_tag }}
   {{ 'custom-style.scss.css' | asset_url | stylesheet_tag }}
   <link rel="preload" as="font" href="{{ header_font | font_url }}" type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="{{ base_font | font_url }}" type="font/woff2" crossorigin>
@@ -29,6 +30,7 @@
   <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
   <link rel="preload" href="{{ 'lazysizes.js' | asset_url }}" as="script">
   {{ 'slick.min.js' | asset_url | script_tag }}
+  {{ 'jquery.magnific-popup.min.js' | asset_url | script_tag }}
   {{ 'custom-js.js' | asset_url | script_tag }}
 
   {%- if canonical_url != blank  -%}
