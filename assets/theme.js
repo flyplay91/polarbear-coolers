@@ -6755,9 +6755,11 @@ theme.Cart = (function() {
         .querySelector(selectors.cartItemOption)
         .cloneNode(true);
 
-      this.itemPropertyTemplate = this.itemTemplate
-        .querySelector(selectors.cartItemProperty)
-        .cloneNode(true);
+      if (this.itemTemplate.querySelector(selectors.cartItemProperty)) {
+        this.itemPropertyTemplate = this.itemTemplate
+          .querySelector(selectors.cartItemProperty)
+          .cloneNode(true);
+      }
 
       this.itemSellingPlanNameTemplate = this.itemTemplate
         .querySelector(selectors.cartItemSellingPlanName)
@@ -7202,9 +7204,11 @@ theme.Cart = (function() {
       }
 
       if (properties !== null && Object.keys(properties).length !== 0) {
-        optionsPropertiesHTML = optionsPropertiesHTML.concat(
-          this._getPropertyList(properties)
-        );
+        if (document.querySelector(selectors.cartItemPropertyValue) != null) {
+          optionsPropertiesHTML = optionsPropertiesHTML.concat(
+            this._getPropertyList(properties)
+          );
+        }
       }
 
       return optionsPropertiesHTML;

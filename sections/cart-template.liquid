@@ -80,7 +80,44 @@
                     </ul>
                     {% endcomment %}
 
+                    <ul class="product-details{% if item.product.has_only_default_variant and property_size == 0 and item.selling_plan_allocation == nil %} hide{% endif %}" data-cart-item-details aria-label="{{ 'cart.label.product_details' | t }}">
+                      {%- for option in variant_options -%}
+                        <li class="product-details__item product-details__item--variant-option{% if item.product.has_only_default_variant %} hide{% endif %}" data-cart-item-option>{{ option.name }}: {{ option.value }}</li>
+                      {%- endfor -%}
+
+                      <li
+                        class="product-details__item product-details__item--property
+                        {% if item.selling_plan_allocation == empty %} hide {% endif %}"
+                        data-cart-item-selling-plan-name
+                      >
+                        {{ item.selling_plan_allocation.selling_plan.name }}
+                      </li>
+
+                      {% comment %}
+                      {%- assign properties = 'template ' | split: ' ' -%}
+                      {%- if property_size > 0 -%}
+                        {%- assign properties = item.properties -%}
+                      {%- endif -%}
+
+                      {%- for p in properties -%}
+                        {% assign property_first_char = p.first | slice: 0 %}
+                        <li class="product-details__item product-details__item--property
+                          {%if property_size == 0 or p.last == blank or property_first_char == '_' %} hide{% endif %}" data-cart-item-property>
+                          <span class="product-details__item-label" data-cart-item-property-name>{{ p.first }}: </span>
+
+                          <span data-cart-item-property-value>
+                            {%- if p.last contains '/uploads/' -%}
+                              <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                            {%- else -%}
+                              {{ p.last }}
+                            {%- endif -%}
+                          </span>
+                        </li>
+                      {%- endfor -%}
+                      {% endcomment %}
                     {% include 'mw_PO_cart' with item, code: 'properties' %}
+                    </ul>
+
 
                     <p class="cart__remove">
                       <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="text-link text-link--accent" aria-label="{{ 'cart.label.remove' | t: product: item.title }}" data-cart-remove>{{ 'cart.general.remove' | t }}</a>
@@ -105,7 +142,7 @@
                         <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
                       </dt>
                       <dd>
-                        <s data-cart-item-original-price>{{ item.original_price | money }}</s>
+                        <s data-cart-item-original-price>{% include 'mw_PO_cart' with item, code: 'price' %}</s>
                       </dd>
                       <dt>
                         <span class="visually-hidden">{{ 'products.product.sale_price' | t }}</span>
@@ -188,8 +225,8 @@
               </td>
               <td class="cart__quantity-td text-right small--hide">
                 <div class="cart__qty">
-                  <label for="updates_large_{{ item.key }}" class="cart__qty-label" data-quantity-label-desktop>{{ 'cart.label.quantity' | t }}</label>
-                  <input id="updates_large_{{ item.key }}" class="cart__qty-input" type="number"
+                  <label for="updates_{{ item.key }}" class="cart__qty-label" data-quantity-label-desktop>{{ 'cart.label.quantity' | t }}</label>
+                  <input id="updates_{{ item.key }}" class="cart__qty-input" type="number"
                     name="updates[]" value="{{ item.quantity }}" min="0" pattern="[0-9]*"
                     data-quantity-input data-quantity-item="{{ forloop.index }}" data-quantity-input-desktop>
                 </div>
@@ -214,7 +251,7 @@
                     <span class="visually-hidden">{{ 'cart.label.discounted_total' | t }}</span>
                   </dt>
                   <dd>
-                    <span class="order-discount" data-cart-item-final-price>{{ item.final_line_price | money }}</span>
+                    <span class="order-discount" data-cart-item-final-price>{% include 'mw_PO_cart' with item, code: 'line_price' %}</span>
                   </dd>
                 </dl >
 
