@@ -52,17 +52,17 @@
               <p><a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a></p>
             {% endif %}
 
-            <input type="submit" class="btn" value="{{ 'customer.login.sign_in' | t }}">
-
             <p>
               {{ 'layout.customer.create_account' | t | customer_register_link }}
             </p>
+
+            <input type="submit" class="btn" value="{{ 'customer.login.sign_in' | t }}">
           </div>
 
         {% endform %}
       </div>
 
-      <div id="RecoverPasswordForm" class="hide">
+      <div id="RecoverPasswordForm" class="hide recovery-pass-form">
 
         <div class="text-center">
           <h2 id="RecoverHeading">{{ 'customer.recover_password.title' | t }}</h2>

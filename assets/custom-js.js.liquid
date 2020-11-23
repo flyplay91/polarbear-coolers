@@ -87,6 +87,10 @@ $(document).ready(function() {
 
 		fixedContentPos: false
 	});
+
+	$('body').on('click', '#RecoverPassword', function() {
+		$('.recovery-pass-form').toggleClass('hide');
+	});
 });
 
 function showReview() {
