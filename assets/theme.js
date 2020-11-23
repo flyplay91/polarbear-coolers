@@ -3106,16 +3106,17 @@ theme.MobileNav = (function() {
   }
 
   function openMobileNav() {
-    var translateHeaderHeight = cache.siteHeader.offsetHeight;
+    // var translateHeaderHeight = cache.siteHeader.offsetHeight;
 
     theme.Helpers.prepareTransition(cache.mobileNavContainer);
     cache.mobileNavContainer.classList.add(classes.navOpen);
 
     cache.mobileNavContainer.style.transform =
-      'translateY(' + translateHeaderHeight + 'px)';
+      // 'translateY(' + translateHeaderHeight + 'px)';
+      'scaleY(1)';
 
-    cache.pageContainer.style.transform =
-      'translate3d(0, ' + cache.mobileNavContainer.scrollHeight + 'px, 0)';
+    // cache.pageContainer.style.transform =
+    //   'translate3d(0, ' + cache.mobileNavContainer.scrollHeight + 'px, 0)';
 
     slate.a11y.trapFocus({
       container: cache.sectionHeader,
@@ -3138,7 +3139,8 @@ theme.MobileNav = (function() {
   function closeMobileNav() {
     theme.Helpers.prepareTransition(cache.mobileNavContainer);
     cache.mobileNavContainer.classList.remove(classes.navOpen);
-    cache.mobileNavContainer.style.transform = 'translateY(-100%)';
+    // cache.mobileNavContainer.style.transform = 'translateY(-100%)';
+    cache.mobileNavContainer.style.transform = 'scaleY(0)';
     cache.pageContainer.setAttribute('style', '');
 
     slate.a11y.trapFocus({

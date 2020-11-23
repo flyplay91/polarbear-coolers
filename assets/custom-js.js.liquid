@@ -34,6 +34,20 @@ $(document).ready(function() {
 		.on('click', '.write-review', function(e) {
 			e.preventDefault();
 			showReviewForm();
+		})
+		.on('click', '.footer-logo-links .h4', function(e) {
+			$(this).parent().toggleClass('active');
+		})
+		.on('click', '.shop-category-dropdown-left .sub-trigger', function() {
+			var selected_shop_category = $(this).prev().data('value');
+			$('.category-dropdown-right-item').removeClass('active');
+			$('.category-dropdown-right-item[data-value="' + selected_shop_category + '"]').addClass('active');
+			$('.shop-category-dropdown-left').removeClass('active');
+			$('.shop-category-dropdown-right').addClass('active');
+		})
+		.on('click', '.shop-category-dropdown-right .back-main', function() {
+			$('.shop-category-dropdown-right').removeClass('active');
+			$('.shop-category-dropdown-left').addClass('active');
 		});
 
 
