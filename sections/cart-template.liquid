@@ -10,9 +10,9 @@
 
     <form action="{{ routes.cart_url }}" method="post" novalidate class="cart">
       
-   <div class="display-flex">  
+   <div class="cart-template-content">  
      
-     <div class="grid-66">
+     <div class="grid-66 small--one-whole">
      
       <table>
         <thead class="cart__row cart__row--heading">
@@ -308,7 +308,7 @@
       </table>
        
        {%- if section.settings.cart_notes_enable -%}
-            <div class="grid__item medium-up--one-half cart-note">
+            <div class="grid__item medium-up--one-half small--one-whole cart-note">
               <label for="CartSpecialInstructions" class="cart-note__label small--text-center">{{ 'cart.general.note' | t }}</label>
               <textarea name="note" id="CartSpecialInstructions" class="cart-note__input" data-cart-notes>{{ cart.note }}</textarea>
             </div>
@@ -318,7 +318,7 @@
      </div> 
       
       
-	<div class="grid-33">
+	<div class="grid-33 small--one-whole">
       <div class="cart__footer">
         <h3> Order Summary </h3>
         <div class="grid">
