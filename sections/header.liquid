@@ -108,6 +108,48 @@
             </a>
             {% include 'down-arrow' %}
           </li>
+          <div id="sticky-slidedown-cart" class="mini-cart">
+            <div class="mini-cart-wrap" data-id="{{product.id}}">
+              <!--  <h3>{{ 'cart.general.mini_cart_title' | t }}</h3>-->
+              <div class="no-items{% if cart.item_count > 0 %} hide{% endif %}">
+                <p>{{ 'cart.general.empty' | t }}</p>
+              </div>
+              <div class="has-items{% if cart.item_count == 0 %} hide{% endif %}">
+                <div class="summary">
+                  <p class="total">
+                    <span class="label">{{ 'cart.general.cart_subtotal' | t }}:</span>
+                    <span class="price">{{cart.total_price | money}}</span>
+                  </p>
+                </div>
+                <ul class="mini-products-list">
+                  {% for item in cart.items %}
+                  <li class="item" id="cart-item-{{item.id}}" data-id="{{item.id}}" data-index="{{ forloop.index }}">
+                    <a href="{{item.url}}" title="{{item.title}}" class="product-image">
+                      <img src="{{ item.image | product_img_url: 'small' }}" alt="{{item.title}}"></a>
+                    <div class="product-details">
+                      <p class="product-name"><a href="{{item.url}}">{{ item.product.title }}</a></p>
+                      <span class="price">{{item.price | money}}</span>
+                      <span class="variant">{% if item.product.variants.size != 0 %}
+                        {% unless item.variant.title contains 'Default' %}
+                        {{ item.variant.title }}
+                        {% endunless %}
+                      {% endif %}</span>
+                      <div class="product-qty">
+                        <span class="qty"><span>{{ 'cart.label.qty' | t }}:</span> {{item.quantity}}</span>
+                        <a href="javascript:void(0)" title="Remove This Item" class="btn-remove">{{ 'cart.general.remove' | t }}</a>
+                      </div>
+                    </div>
+                  </li>
+                  {% endfor %}
+                </ul>
+                
+                <div class="actions">
+                  <!-- <button class="btn" onclick="window.location='/checkout'"><i class="mdi mdi-share"></i>{{ 'cart.general.checkout' | t }}</button> -->
+                  <button class="btn text-cart" onclick="window.location='/cart'"><i class="mdi mdi-cart-outline"></i>{{ 'cart.general.view_cart_checkout' | t }}</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </ul>
       </div>
     </div>

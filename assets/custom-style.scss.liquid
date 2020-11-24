@@ -76,7 +76,10 @@ margin-top: -10px;
 .price__badge--sale span {
     color: #fff !important;
 }
-.cart-popup-item__title {color:#6e6e6e;font-size:16px !important;}
+.cart-popup-item__title {
+  color:#6e6e6e !important;
+  font-size:16px !important;
+}
 .cart-subtotal .cart-subtotal__price {text-align:right;font-size:18px;font-weight:600;width:40%;}
 .cart-subtotal {display:flex;border-bottom: 1px solid #e6e6e6;
 padding-bottom: 15px;}
@@ -464,6 +467,133 @@ p {
             height: 16px;
             fill: white;
             margin-left: 5px;
+            transition: all 0.3s;
+            cursor: pointer;
+            &.active {
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+
+      .mini-cart {
+        transform: scaleY(0);
+        transform-origin: top;
+        opacity: 0;
+        position: absolute;
+        background: #f7f7f7;
+        border: 1px solid rgba(205, 205, 205, 0.7);
+        max-width: 30rem;
+        width: 100vw;
+        right: 0;
+        top: calc(100% - 16px);
+        z-index: 5;
+        transition: all 0.3s;
+        &.active {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        .no-items {
+          padding: 1.5rem;
+          p {
+            padding: 0.75em 1.25em;
+            font-size: 0.8125rem;
+            background-color: #fff;
+            border: 0 none;
+            box-shadow: 0 0 0.25em;
+            color: #003b6f;
+            font-weight: 600;
+            text-transform: uppercase;
+          }
+        }
+        .has-items {
+          padding: 1.5rem;
+          .summary {
+            .total {
+              margin-bottom: 16px;
+              font-size: 18px;
+              color: #333;
+              letter-spacing: 0.8px;
+              .label {
+                font-size: 0.75em;
+                text-transform: uppercase;
+              }
+              .price {
+                display: inline;
+                font-weight: 700;
+              }
+            }
+          }
+          .mini-products-list {
+            display: flex;
+            flex-direction: column;
+            max-height: 465px;
+            overflow: scroll;
+            .item {
+              flex-basis: 100%;
+              max-width: 100%;
+              padding: 1.5rem 0;
+              display: flex;
+              border-top: 1px solid #d8d8d8;
+              .product-image {
+                margin-right: 1.5rem;
+                flex-basis: 30%;
+              }
+              .product-details {
+                margin: 0;
+                padding: 0;
+                color: #333;
+                text-align: left;
+                flex-basis: 70%;
+                width: 70%;
+              }
+              .product-name {
+                margin: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                a {
+                  color: #333;
+                  font-weight: 300;
+                  font-size: 18px;
+                }
+              }
+              .price {
+                font-size: 16px;
+                font-weight: 600;
+              }
+              .variant {
+                font-size: 14px;
+                font-weight: 600;
+              }
+              .qty {
+                font-size: 16px;
+                font-weight: 600;
+                span {
+                  font-size: 0.832em;
+                  font-weight: 300;
+                }
+              }
+              .btn-remove {
+                float: right;
+                color: #ff830f;
+                text-transform: uppercase;
+                font-weight: 500;
+                letter-spacing: 0.8px;
+                &:hover {
+                  color: #888888;
+                }
+              }
+            }
+          }
+          .btn.text-cart {
+            width: 100%;
+            color: #ff830f;
+            padding: 1rem;
+            font-weight: 600;
+            &:hover {
+              color: #888888;
+            }
           }
         }
       }
