@@ -6,12 +6,12 @@
       <h1>{{ page.title }}</h1>
       
       <div class="page-contact-inner">
-        <div class="d-w-50 content-inner-left">
+        <div class="d-w-50 content-inner-left small--one-whole">
           {% if page.content.size > 0 %}
             {{ page.content }}
           {% endif %}
         </div>
-        <div class="d-w-50 content-inner-right">
+        <div class="d-w-50 content-inner-right small--one-whole">
           {%- assign formId = 'ContactForm' -%}
           {% form 'contact', id: formId %}
             {% include 'form-status', form: form, form_id: formId %}
