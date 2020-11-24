@@ -8450,10 +8450,11 @@ theme.Product = (function() {
           return response.json();
         })
         .then(function(cart) {
-          self._setCartQuantity(cart.item_count);
-          self._setCartCountBubble(cart.item_count);
+          let count = buildMiniCart(cart);
+          self._setCartQuantity(count);
+          self._setCartCountBubble(count);
           self._showCartPopup();
-          buildMiniCart(cart);
+
         })
         .catch(function(error) {
           // eslint-disable-next-line no-console
