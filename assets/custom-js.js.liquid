@@ -118,6 +118,13 @@ $(document).ready(function() {
 	$('body').on('click', '#RecoverPassword', function() {
 		$('.recovery-pass-form').toggleClass('hide');
 	});
+
+	if ($(window).width() < 801) {
+		$('body').on('click', '.normal-page-sidebar > h3', function() {
+			$(this).closest('.normal-page-sidebar').toggleClass('active');
+		});	
+	}
+	
 });
 
 function showReview() {
