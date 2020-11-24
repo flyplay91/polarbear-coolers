@@ -8603,8 +8603,10 @@ theme.Product = (function() {
       this.cartCount =
         this.cartCount || document.querySelector(this.selectors.cartCount);
 
+      
       this.cartCountBubble.classList.remove(this.classes.hidden);
       this.cartCount.textContent = quantity;
+      $('#mwAddToCart').removeAttr('style')
     },
 
     _showCartPopup: function() {
