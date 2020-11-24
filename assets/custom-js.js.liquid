@@ -74,7 +74,16 @@ $(document).ready(function() {
 	  centerMode: false,
   	focusOnSelect: true,
 	  vertical: true,
-	  verticalSwiping: true
+	  verticalSwiping: true,
+	  responsive: [
+	    {
+	      breakpoint: 600,
+	      settings: {
+	        vertical: false,
+	        slidesToShow: 3,
+	      }
+	    }
+	  ]
 	 });
 
 
@@ -84,7 +93,6 @@ $(document).ready(function() {
 		mainClass: 'mfp-fade',
 		removalDelay: 160,
 		preloader: false,
-
 		fixedContentPos: false
 	});
 
