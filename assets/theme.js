@@ -8453,6 +8453,7 @@ theme.Product = (function() {
           self._setCartQuantity(cart.item_count);
           self._setCartCountBubble(cart.item_count);
           self._showCartPopup();
+          buildMiniCart(cart);
         })
         .catch(function(error) {
           // eslint-disable-next-line no-console

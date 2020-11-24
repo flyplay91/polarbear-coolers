@@ -101,13 +101,6 @@
               {% include 'down-arrow' %}
             </a>
           </li>
-          <li class="header-middle--cart">
-            <a href="/cart">
-              Cart
-              <span class="header-cart-count" data-cart-count data-cart-count-bubble>{{ cart.item_count }}</span>
-            </a>
-            {% include 'down-arrow' %}
-          </li>
           <div id="sticky-slidedown-cart" class="mini-cart">
             <div class="mini-cart-wrap" data-id="{{product.id}}">
               <!--  <h3>{{ 'cart.general.mini_cart_title' | t }}</h3>-->
@@ -122,24 +115,44 @@
                   </p>
                 </div>
                 <ul class="mini-products-list">
+                  {%- assign count = 0 -%}
                   {% for item in cart.items %}
-                  <li class="item" id="cart-item-{{item.id}}" data-id="{{item.id}}" data-index="{{ forloop.index }}">
-                    <a href="{{item.url}}" title="{{item.title}}" class="product-image">
-                      <img src="{{ item.image | product_img_url: 'small' }}" alt="{{item.title}}"></a>
-                    <div class="product-details">
-                      <p class="product-name"><a href="{{item.url}}">{{ item.product.title }}</a></p>
-                      <span class="price">{{item.price | money}}</span>
-                      <span class="variant">{% if item.product.variants.size != 0 %}
-                        {% unless item.variant.title contains 'Default' %}
-                        {{ item.variant.title }}
-                        {% endunless %}
-                      {% endif %}</span>
-                      <div class="product-qty">
-                        <span class="qty"><span>{{ 'cart.label.qty' | t }}:</span> {{item.quantity}}</span>
-                        <a href="javascript:void(0)" title="Remove This Item" class="btn-remove">{{ 'cart.general.remove' | t }}</a>
+                    {% if item.product.type == 'mw_motivator_product' %}{% continue %}{% endif %}
+                    {% if item.product.type == 'mw_hidden_cart_fee' %}{% continue %}{% endif %}
+                    {% unless item.product.type == 'mw_product_option' or item.properties._mw_is_variant %}
+                      {%- assign count = count | plus: 1 -%}
+                    {% endunless %}
+
+                    <li class="item {% include 'mw_PO_cart', code: 'class' %}" {% include 'mw_PO_cart' with item, code: 'style' %} id="cart-item-{{item.id}}" data-id="{{item.id}}" data-index="{{ forloop.index }}">
+                      <a href="{{item.url}}" title="{{item.title}}" class="product-image">
+                        <img src="{{ item.image | product_img_url: 'small' }}" alt="{{item.title}}"></a>
+                      <div class="product-details">
+                        <p class="product-name"><a href="{{item.url}}">{{ item.product.title }}</a></p>
+                        <span class="price">{% include 'mw_PO_cart' with item, code: 'price' %}</span>
+
+                        {%- assign variant_options = 'template ' | split: ' ' -%}
+                        {%- if item.product.has_only_default_variant != true -%}
+                          {%- assign variant_options = item.options_with_values -%}
+                        {%- endif -%}
+                        <span class="variant">
+                          {% if item.product.has_only_default_variant != true %}
+                            {%- for option in variant_options -%}
+                              <span class="option-cart-title">{{ option.name }}:</span>
+                              <span class="option-cart-title-content">{{ option.value }}</span>
+                              <br/>
+                            {%- endfor -%}
+                          {% endif %}
+                          <span class="option--property{% if item.selling_plan_allocation == empty %} hide {% endif %}">
+                            {{ item.selling_plan_allocation.selling_plan.name }}
+                          </span>
+                          {% include 'mw_PO_cart' with item, code: 'properties' %}
+                        </span>
+                        <div class="product-qty">
+                          <span class="qty"><span>{{ 'cart.label.qty' | t }}:</span> {{item.quantity}}</span>
+                          <a href="javascript:void(0)" title="Remove This Item" class="btn-remove">{{ 'cart.general.remove' | t }}</a>
+                        </div>
                       </div>
-                    </div>
-                  </li>
+                    </li>
                   {% endfor %}
                 </ul>
                 
@@ -150,6 +163,13 @@
               </div>
             </div>
           </div>
+          <li class="header-middle--cart">
+            <a href="/cart">
+              Cart
+              <span class="header-cart-count" data-cart-count data-cart-count-bubble>{{ count }}</span>
+            </a>
+            {% include 'down-arrow' %}
+          </li>
         </ul>
       </div>
     </div>

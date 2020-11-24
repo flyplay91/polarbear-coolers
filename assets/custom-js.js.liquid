@@ -57,7 +57,6 @@ $(document).ready(function() {
 			let index = $(this).closest('.item').attr('data-index');
 			$.post('/cart/change.js', {line: index, quantity: 0}, function(cart) {
 				buildMiniCart(cart);
-				updateHeaderCartCount(cart.item_count);
 			}, "json");
 		});
 
@@ -136,24 +135,45 @@ function buildMiniCart(cart) {
 	let $noItems = $minicart.find('.no-items');
 	let $hasItems = $minicart.find('.has-items');
 	let productListHtml = '';
+	let count = 0;
+	
 	$hasItems.find('.total .price').text(Shopify.formatMoney(cart.total_price));
+	
 	cart.items.forEach(function(item, idx) {
+		if (item.product_type == 'mw_motivator_product' || item.product_type == 'mw_hidden_cart_fee') return;
+
+		let style = (item.product_type == 'mw_product_option' || item.properties._mw_is_variant) ? 'style="display:none"' : '';
+		let image = item.image ? item.image.replace(/(\.jpg|\.png)/g, '_small$1') : '';
+		let price = getMwPrice(cart, item);
+		let variant = getMwProperties(item);
+		if (item.product_has_only_default_variant == false) {
+			let temp = '';
+			item.options_with_values.forEach(function(option) {
+				temp += `<span class="option-cart-title">${option.name}:</span><span class="option-cart-title-content">${option.value}</span><br/>`;
+			});
+			variant = temp + variant;
+		}
+
 		productListHtml += `
-			<li class="item" id="cart-item-${item.id}" data-id="${item.id}" data-index="${idx + 1}">
-        <a href="${item.url}" title="${item.title}" class="product-image">
-          <img src="${ item.image.replace(/(\.jpg|\.png)/g, '_small$1') }" alt="${item.title}"></a>
-        <div class="product-details">
-          <p class="product-name"><a href="${item.url}">${ item.product_title }</a></p>
-          <span class="price">${ Shopify.formatMoney(item.price) }</span>
-          <span class="variant"></span>
-          <div class="product-qty">
-            <span class="qty"><span>{{ 'cart.label.qty' | t }}:</span> ${item.quantity}</span>
-            <a href="javascript:void(0)" title="Remove This Item" class="btn-remove">{{ 'cart.general.remove' | t }}</a>
-          </div>
-        </div>
-      </li>`;
+			<li class="item mw_cart_line" ${style} id="cart-item-${item.id}" data-id="${item.id}" data-index="${ idx + 1 }">
+				<a href="${item.url}" title="${item.title}" class="product-image">
+					<img src="${image}" alt="${item.title}"></a>
+				<div class="product-details">
+					<p class="product-name"><a href="${item.url}">${item.product_title}</a></p>
+					<span class="price">${price}</span>
+					<span class="variant">${variant}</span>
+					<div class="product-qty">
+						<span class="qty"><span>{{ 'cart.label.qty' | t }}:</span> ${item.quantity}</span>
+						<a href="javascript:void(0)" title="Remove This Item" class="btn-remove">{{ 'cart.general.remove' | t }}</a>
+					</div>
+				</div>
+			</li>`;
+
+		count++;
 	});
+
 	$hasItems.find('.mini-products-list').html(productListHtml);
+	
 	if (cart.item_count > 0) {
 		$noItems.addClass('hide');
 		$hasItems.removeClass('hide');
@@ -161,8 +181,51 @@ function buildMiniCart(cart) {
 		$noItems.removeClass('hide');
 		$hasItems.addClass('hide');
 	}
+
+	updateHeaderCartCount(count);
 }
 
 function updateHeaderCartCount(cart_item_count) {
 	$('.site-header .header-cart-count').text(cart_item_count);
+}
+
+function getMwPrice(cart, item) {
+	let productPrice = 0;
+	let onetimePrice = 0;
+	let total = 0;
+	for (i in cart.items) {
+		if (item.properties._mw_option_relation) {
+			if (item.properties._mw_option_relation == cart.items[i].properties._mw_option_relation) {
+				productPrice = cart.items[i].line_price + productPrice;
+				total = productPrice / item.quantity;
+			}
+		} else {
+			total = item.price;
+		}
+	}
+	return Shopify.formatMoney(total);
+}
+
+function getMwProperties(item) {
+	let html = '';
+	if (Object.keys(item.properties).length > 0 && item.product_type != 'mw_product_option') {
+		for (p in item.properties) {
+			if (item.properties[p] != '') {
+				if (p.indexOf('_mw_option_relation') >= 0) continue;
+				if (p.indexOf('_replaced_image') >= 0) continue;
+				if (p.indexOf('_builder_id') >= 0) continue;
+				if (p.indexOf('_master_builder') >= 0) continue;
+				html += `<span class="option-cart-title">${p}:</span>`;
+				if (item.properties[p].indexOf('/uploads/') >= 0) {
+					let url = item.properties[p].split('/');
+					html += `<a class="lightbox" href="${ item.properties[p] }">${ url[url.length - 1] }</a>`;
+				} else {
+					html += `<span class="option-cart-title-content">${ item.properties[p] }</span>`;
+				}
+				html += '<br>';
+			}
+		}
+		html += '<span class="mw-configure-link-container"></span>';
+	}
+	return html;
 }
