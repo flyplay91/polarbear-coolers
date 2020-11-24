@@ -23,6 +23,14 @@
           <th class="" scope="col"></th>
         </thead>
         <tbody data-cart-line-items>
+          {%- assign count = 0 -%}
+          {% for item in cart.items %}
+            {% if item.product.type == 'mw_motivator_product' %}{% continue %}{% endif %}
+            {% if item.product.type == 'mw_hidden_cart_fee' %}{% continue %}{% endif %}
+            {% unless item.product.type == 'mw_product_option' or item.properties._mw_is_variant %}
+              {%- assign count = count | plus: 1 -%}
+            {% endunless %}
+          {% endfor %}
           {%- for item in cart.items -%}
           {% if item.product.type == 'mw_motivator_product' %}{% continue %}{% endif %}
           {% if item.product.type == 'mw_hidden_cart_fee' %}{% continue %}{% endif %}
@@ -337,7 +345,8 @@
             </div>
 
             <div class="cart-subtotal">
-              <span class="cart-subtotal__title">{{ 'cart.general.subtotal' | t }}: {{ cart.item_count }} {% if cart.item_count > 1 %} items {% else %} item {% endif %}</span>
+              <!-- <span class="cart-subtotal__title">{{ 'cart.general.subtotal' | t }}: {{ cart.item_count }} {% if cart.item_count > 1 %} items {% else %} item {% endif %}</span> -->
+              <span class="cart-subtotal__title">{{ 'cart.general.subtotal' | t }}: {{ count }} {{ count | pluralize: 'item', 'items' }}</span>
               <span class="cart-subtotal__price" data-cart-subtotal>{{ cart.items_subtotal_price | money }}</span>
             </div>
 
