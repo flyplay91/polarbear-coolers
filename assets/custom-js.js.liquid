@@ -52,6 +52,13 @@ $(document).ready(function() {
 		.on('click', '.header-middle--cart svg', function() {
 			$(this).toggleClass('active');
 			$('#sticky-slidedown-cart').toggleClass('active');
+		})
+		.on('click', '.mini-products-list .btn-remove', function() {
+			let index = $(this).closest('.item').attr('data-index');
+			$.post('/cart/change.js', {line: index, quantity: 0}, function(cart) {
+				buildMiniCart(cart);
+				updateHeaderCartCount(cart.item_count);
+			}, "json");
 		});
 
 
@@ -82,8 +89,14 @@ $(document).ready(function() {
 	});
 
 
-
-
+	/* Cart */
+	// const ajax_enabled = $('.product-template__container').attr('data-ajax-enabled') === true;
+	// $('.product-form').off('submit');
+	/*$('.product-form').submit(function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		console.log('done');
+	});*/
 
 });
 
@@ -106,4 +119,38 @@ function showReviewForm() {
   }, 1000);
 }
 
+function buildMiniCart(cart) {
+	let $minicart = $('.mini-cart');
+	let $noItems = $minicart.find('.no-items');
+	let $hasItems = $minicart.find('.has-items');
+	let productListHtml = '';
+	$hasItems.find('.total .price').text(Shopify.formatMoney(cart.total_price));
+	cart.items.forEach(function(item, idx) {
+		productListHtml += `
+			<li class="item" id="cart-item-${item.id}" data-id="${item.id}" data-index="${idx + 1}">
+        <a href="${item.url}" title="${item.title}" class="product-image">
+          <img src="${ item.image.replace(/(\.jpg|\.png)/g, '_small$1') }" alt="${item.title}"></a>
+        <div class="product-details">
+          <p class="product-name"><a href="${item.url}">${ item.product_title }</a></p>
+          <span class="price">${ Shopify.formatMoney(item.price) }</span>
+          <span class="variant"></span>
+          <div class="product-qty">
+            <span class="qty"><span>{{ 'cart.label.qty' | t }}:</span> ${item.quantity}</span>
+            <a href="javascript:void(0)" title="Remove This Item" class="btn-remove">{{ 'cart.general.remove' | t }}</a>
+          </div>
+        </div>
+      </li>`;
+	});
+	$hasItems.find('.mini-products-list').html(productListHtml);
+	if (cart.item_count > 0) {
+		$noItems.addClass('hide');
+		$hasItems.removeClass('hide');
+	} else {
+		$noItems.removeClass('hide');
+		$hasItems.addClass('hide');
+	}
+}
 
+function updateHeaderCartCount(cart_item_count) {
+	$('.site-header .header-cart-count').text(cart_item_count);
+}

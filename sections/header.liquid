@@ -123,7 +123,7 @@
                 </div>
                 <ul class="mini-products-list">
                   {% for item in cart.items %}
-                  <li class="item" id="cart-item-{{item.id}}" data-id="{{item.id}}">
+                  <li class="item" id="cart-item-{{item.id}}" data-id="{{item.id}}" data-index="{{ forloop.index }}">
                     <a href="{{item.url}}" title="{{item.title}}" class="product-image">
                       <img src="{{ item.image | product_img_url: 'small' }}" alt="{{item.title}}"></a>
                     <div class="product-details">
