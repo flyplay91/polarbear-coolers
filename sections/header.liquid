@@ -101,13 +101,28 @@
               {% include 'down-arrow' %}
             </a>
           </li>
+          {%- assign count = 0 -%}
+          {% for item in cart.items %}
+            {% if item.product.type == 'mw_motivator_product' %}{% continue %}{% endif %}
+            {% if item.product.type == 'mw_hidden_cart_fee' %}{% continue %}{% endif %}
+            {% unless item.product.type == 'mw_product_option' or item.properties._mw_is_variant %}
+              {%- assign count = count | plus: 1 -%}
+            {% endunless %}
+          {% endfor %}
+          <li class="header-middle--cart">
+            <a href="/cart">
+              Cart
+              <span class="header-cart-count" data-cart-count data-cart-count-bubble>{{ count }}</span>
+            </a>
+            {% include 'down-arrow' %}
+          </li>
           <div id="sticky-slidedown-cart" class="mini-cart">
             <div class="mini-cart-wrap" data-id="{{product.id}}">
               <!--  <h3>{{ 'cart.general.mini_cart_title' | t }}</h3>-->
-              <div class="no-items{% if cart.item_count > 0 %} hide{% endif %}">
+              <div class="no-items{% if count > 0 %} hide{% endif %}">
                 <p>{{ 'cart.general.empty' | t }}</p>
               </div>
-              <div class="has-items{% if cart.item_count == 0 %} hide{% endif %}">
+              <div class="has-items{% if count == 0 %} hide{% endif %}">
                 <div class="summary">
                   <p class="total">
                     <span class="label">{{ 'cart.general.cart_subtotal' | t }}:</span>
@@ -115,15 +130,11 @@
                   </p>
                 </div>
                 <ul class="mini-products-list">
-                  {%- assign count = 0 -%}
                   {% for item in cart.items %}
                     {% if item.product.type == 'mw_motivator_product' %}{% continue %}{% endif %}
                     {% if item.product.type == 'mw_hidden_cart_fee' %}{% continue %}{% endif %}
-                    {% unless item.product.type == 'mw_product_option' or item.properties._mw_is_variant %}
-                      {%- assign count = count | plus: 1 -%}
-                    {% endunless %}
-
-                    <li class="item {% include 'mw_PO_cart', code: 'class' %}" {% include 'mw_PO_cart' with item, code: 'style' %} id="cart-item-{{item.id}}" data-id="{{item.id}}" data-index="{{ forloop.index }}">
+                  
+                    <li class="item {% include 'mw_PO_cart', code: 'class' %}" {% include 'mw_PO_cart' with item, code: 'style' %} id="cart-item-{{item.id}}" data-key="{{item.key}}" data-index="{{ forloop.index }}" data-relation="{{item.properties._mw_option_relation}}">
                       <a href="{{item.url}}" title="{{item.title}}" class="product-image">
                         <img src="{{ item.image | product_img_url: 'small' }}" alt="{{item.title}}"></a>
                       <div class="product-details">
@@ -163,13 +174,6 @@
               </div>
             </div>
           </div>
-          <li class="header-middle--cart">
-            <a href="/cart">
-              Cart
-              <span class="header-cart-count" data-cart-count data-cart-count-bubble>{{ count }}</span>
-            </a>
-            {% include 'down-arrow' %}
-          </li>
         </ul>
       </div>
     </div>
