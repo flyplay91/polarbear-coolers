@@ -31,7 +31,7 @@
     color: {{ section.settings.color_footer_text }};
   }
 
-  .site-footer {
+  .site-footer .footer-page-width {
     background-color: {{ section.settings.color_footer_bg }};
   }
 
@@ -59,7 +59,6 @@
 
 <footer class="site-footer critical-hidden" role="contentinfo" data-section-id="{{ section.id }}" data-section-type="footer-section">
   <div class="footer-page-width">
-    
     <div class="footer-subscription-block">
       {% form 'customer', id: formId, novalidate: 'novalidate' %}
         {%- if form.posted_successfully? -%}
@@ -167,7 +166,10 @@
         
       </div>
     </div>
-    
+  </div>
+
+  <div class="footer-copywriter">
+    <p>{{section.settings.copywriter_text}}</p>
   </div>
 </footer>
 
@@ -223,6 +225,11 @@
       "id": "color_footer_link_hover_text",
       "label": "Menu Hover Color",
       "default": "#333232"
+    },
+    {
+      "type": "text",
+      "id": "copywriter_text",
+      "label": "Copywriter"
     }
   ],
   "blocks": [
