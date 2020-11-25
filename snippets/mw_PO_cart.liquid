@@ -1,5 +1,5 @@
 {% case code %}
-  {% when 'class' %}mw_cart_line
+    {% when 'class' %}mw_cart_line
     {% when 'style' %}data-id="{{ mw_PO_cart.id }}" {% if mw_PO_cart.product.type == 'mw_product_option' or mw_PO_cart.properties._mw_is_variant %} style="display:none"{% endif %}
     {% when 'relation' %}
         <span data-mw-relation="{{ mw_PO_cart.properties._mw_option_relation }}"></span>
@@ -8,7 +8,6 @@
         {% if propertySize > 0 and mw_PO_cart.product.type != 'mw_product_option' %}
             {% for p in mw_PO_cart.properties %}
                 {% unless p.last == blank %}
-                    <br>
                     {% if p.first contains '_mw_option_relation' %}{% continue %}{% endif; %}
                     {% if p.first contains '_replaced_image' %}{% continue %}{% endif; %}
                     {% comment %} add BOLD properties {% endcomment %}
@@ -20,10 +19,10 @@
                     {% else %}
                         <span class="option-cart-title-content">{% for prop in p.last %}{{ prop }}{% if forloop.last == false %}, {% endif %}{% endfor %}</span>
                     {% endif %}
+                    <br>
                 {% endunless %}
             {% endfor %}
-            <br>
-          <span class="mw-configure-link-container"></span>
+            <span class="mw-configure-link-container"></span>
         {% endif %}
     {% when 'price' %}
         {% assign productPrice = 0 %}
@@ -42,4 +41,14 @@
     {% when 'line_price' %}
         {% assign productLinePrice = total | times: mw_PO_cart.quantity | minus: onetimePrice %}
         {{ productLinePrice | money }}
+    {% when 'relation_price' %}
+        {% assign productPrice = 0 %}
+        {% for nextItem in cart.items %}
+            {% if mw_PO_cart.properties._mw_option_relation %}
+                {% if mw_PO_cart.properties._mw_option_relation == nextItem.properties._mw_option_relation %}
+                    {% assign productPrice = nextItem.price %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        +{{ productPrice | money }}
 {% endcase %}

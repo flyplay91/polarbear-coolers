@@ -283,20 +283,24 @@ function getMwPrice(cart, item) {
 
 function getMwProperties(cart, item) {
 	let html = '';
+	let optionPrice = '';
 	if (item.properties && Object.keys(item.properties).length > 0 && item.product_type != 'mw_product_option') {
-		for (p in item.properties) {
-			if (p == 'Personalize Your Order') {
-				for (i in cart.items) {
-					if (cart.items[i].product_type == 'mw_product_option' && cart.items[i].properties._mw_option_relation == item.properties._mw_option_relation) {
-						item.properties[p] += ' (+' + Shopify.formatMoney(cart.items[i].price) + ')';
-					}
-				}
+		for (i in cart.items) {
+			if (cart.items[i].product_type == 'mw_product_option' && cart.items[i].properties._mw_option_relation == item.properties._mw_option_relation) {
+				optionPrice = ' (+' + Shopify.formatMoney(cart.items[i].price) + ')';
 			}
+		}
+		for (p in item.properties) {
 			if (item.properties[p] != '') {
 				if (p.indexOf('_mw_option_relation') >= 0) continue;
 				if (p.indexOf('_replaced_image') >= 0) continue;
 				if (p.indexOf('_builder_id') >= 0) continue;
 				if (p.indexOf('_master_builder') >= 0) continue;
+				
+				if (optionPrice) {
+					item.properties[p] += optionPrice;
+					optionPrice = '';
+				}
 				html += '<br>';
 				html += `<span class="option-cart-title">${p}: </span>`;
 				if (item.properties[p].indexOf('/uploads/') >= 0) {

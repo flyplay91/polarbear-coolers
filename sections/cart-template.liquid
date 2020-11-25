@@ -99,6 +99,8 @@
                     <div class="product-details__image{% if item.product.has_only_default_variant or property_size <= 1 %} hide{% endif %}">{{ 'monogram.png' | asset_url | img_tag }}</div>
                     <ul class="product-details{% if item.product.has_only_default_variant and property_size == 0 and item.selling_plan_allocation == nil %} hide{% endif %}" data-cart-item-details aria-label="{{ 'cart.label.product_details' | t }}">
                      
+                      <li class="product-details__item product-details__item--price">{{ item.price | money }}</li>
+                      
                       <li> SKU: {{ item.sku }}</li>
                       
                       {%- for option in variant_options -%}
@@ -112,6 +114,7 @@
                       >
                         {{ item.selling_plan_allocation.selling_plan.name }}
                       </li>
+
 
                       {% comment %}
                       {%- assign properties = 'template ' | split: ' ' -%}
@@ -135,7 +138,9 @@
                         </li>
                       {%- endfor -%}
                       {% endcomment %}
-                    {% include 'mw_PO_cart' with item, code: 'properties' %}
+                      {% include 'mw_PO_cart' with item, code: 'properties' %}
+
+                      <li class="product-details__item product-details__item--price">{% include 'mw_PO_cart' with item, code: 'relation_price' %}</li>
                     </ul>
 
 

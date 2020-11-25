@@ -5150,6 +5150,9 @@ hr {
   padding: calc((5 / (var(--font-size-base))) * 1em) 0 0;
   font-size: calc(((var(--font-size-base) - 2) / (var(--font-size-base))) * 1em);
 }
+.product-details .option-cart-title {
+  margin: 0;
+}
 
 .product-details.hide+.cart__remove {
   margin-top: 0;
