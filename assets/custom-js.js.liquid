@@ -56,17 +56,23 @@ $(document).ready(function() {
 		.on('click', '.mini-products-list .btn-remove', function() {
 			let $item = $(this).closest('.item');
 			let relation = $item.attr('data-relation');
-			let qty_list = [];
-			$('.mini-products-list .item').each(function(idx, item) {
-				if ($(item).attr('data-relation') == relation) {
-					qty_list.push(0);
-				} else {
-					qty_list.push(parseInt($(item).find('.qty').text().split(':')[1].trim()));
-				}
-			});
-			$.post('/cart/update.js', {updates: qty_list}, function(cart) {
-				buildMiniCart(cart);
-			}, "json");
+			if (relation) {
+				let qty_list = [];
+				$('.mini-products-list .item').each(function(idx, item) {
+					if ($(item).attr('data-relation') == relation) {
+						qty_list.push(0);
+					} else {
+						qty_list.push(parseInt($(item).find('.qty').text().split(':')[1].trim()));
+					}
+				});
+				$.post('/cart/update.js', {updates: qty_list}, function(cart) {
+					buildMiniCart(cart);
+				}, "json");
+			} else {
+				$.post('/cart/change.js', {line: $item.attr('data-index'), quantity: 0}, function(cart) {
+					buildMiniCart(cart);
+				}, "json");
+			}
 		});
 		/*.on('click', '.template-cart tr.cart__row .cart__x .text-link', function(e) {
 			e.preventDefault();
@@ -204,21 +210,24 @@ function buildMiniCart(cart) {
 	cart.items.forEach(function(item, idx) {
 		if (item.product_type == 'mw_motivator_product' || item.product_type == 'mw_hidden_cart_fee') return;
 
-		let style = (item.product_type == 'mw_product_option' || item.properties._mw_is_variant) ? 'style="display:none"' : '';
+		let style = (item.product_type == 'mw_product_option' || checkObjectProperty(item.properties, '_mw_is_variant')) ? 'style="display:none"' : '';
 		let image = item.image ? item.image.replace(/(\.jpg|\.png)/g, '_small$1') : '';
 		// let price = getMwPrice(cart, item);
 		let price = Shopify.formatMoney(item.price);
-		let variant = getMwProperties(cart, item);
+		let variant = '';
+		let relation = '';
 		if (item.product_has_only_default_variant == false) {
+			variant = getMwProperties(cart, item);
 			let temp = '';
 			item.options_with_values.forEach(function(option) {
 				temp += `<span class="option-cart-title">${option.name}:</span><span class="option-cart-title-content">${option.value}</span><br/>`;
 			});
 			variant = temp + variant;
+			relation = checkObjectProperty(item.properties, '_mw_option_relation') ? item.properties._mw_option_relation : '';
 		}
 
 		productListHtml += `
-			<li class="item mw_cart_line" ${style} id="cart-item-${item.id}" data-id="${item.id}" data-index="${ idx + 1 }" data-relation="${item.properties._mw_option_relation}">
+			<li class="item mw_cart_line" ${style} id="cart-item-${item.id}" data-id="${item.id}" data-index="${ idx + 1 }" data-relation="${relation}">
 				<a href="${item.url}" title="${item.title}" class="product-image">
 					<img src="${image}" alt="${item.title}"></a>
 				<div class="product-details">
@@ -232,7 +241,7 @@ function buildMiniCart(cart) {
 				</div>
 			</li>`;
 
-		if (style == '') count++;
+		if (style == '') count += item.quantity;
 	});
 
 	$hasItems.find('.mini-products-list').html(productListHtml);
@@ -274,7 +283,7 @@ function getMwPrice(cart, item) {
 
 function getMwProperties(cart, item) {
 	let html = '';
-	if (Object.keys(item.properties).length > 0 && item.product_type != 'mw_product_option') {
+	if (item.properties && Object.keys(item.properties).length > 0 && item.product_type != 'mw_product_option') {
 		for (p in item.properties) {
 			if (p == 'Personalize Your Order') {
 				for (i in cart.items) {
@@ -308,4 +317,10 @@ function getMwProperties(cart, item) {
 
 function clearCart() {
 	$.post('/cart/clear.js');
+}
+
+function checkObjectProperty(obj, prop) {
+	if (obj && obj.hasOwnProperty(prop) && obj[prop])
+		return true;
+	return false;
 }

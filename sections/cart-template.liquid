@@ -4,7 +4,7 @@
     {% if item.product.type == 'mw_motivator_product' %}{% continue %}{% endif %}
     {% if item.product.type == 'mw_hidden_cart_fee' %}{% continue %}{% endif %}
     {% unless item.product.type == 'mw_product_option' or item.properties._mw_is_variant %}
-      {%- assign count = count | plus: 1 -%}
+      {%- assign count = count | plus: item.quantity -%}
     {% endunless %}
   {% endfor %}
   <div {% if count == 0 %}class="hide" {% endif %}data-cart-wrapper>
