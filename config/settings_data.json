@@ -171,7 +171,8 @@
               "alignment": "center center",
               "slide_title": "",
               "subheading": "",
-              "button_label": ""
+              "button_label": "",
+              "button_link": "shopify:\/\/products\/deluxe-flip-top"
             }
           },
           "1605299613b478a099-1": {
@@ -181,7 +182,8 @@
               "alignment": "center center",
               "slide_title": "",
               "subheading": "",
-              "button_label": ""
+              "button_label": "",
+              "button_link": "shopify:\/\/products\/original-backpack-cooler"
             }
           },
           "6aa57314-b435-40f0-91d3-41918db51f5a": {
@@ -191,7 +193,8 @@
               "alignment": "center center",
               "slide_title": "",
               "subheading": "",
-              "button_label": ""
+              "button_label": "",
+              "button_link": "shopify:\/\/products\/the-roller-bear-70"
             }
           }
         },
@@ -205,7 +208,7 @@
           "text_size": "medium",
           "text_alignment": "center center",
           "show_overlay": false,
-          "autorotate": false,
+          "autorotate": true,
           "autorotate_speed": 5
         }
       },
