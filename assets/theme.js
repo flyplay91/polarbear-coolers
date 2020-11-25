@@ -8339,10 +8339,12 @@ theme.Product = (function() {
         this.addToCart.setAttribute('aria-disabled', true);
         this.addToCartText.classList.add(this.classes.hidden);
         this.loader.classList.remove(this.classes.hidden);
-        this.mwAddToCart.setAttribute('aria-disabled', true);
-        this.mwAddToCartText.classList.add(this.classes.hidden);
-        this.mwLoader.classList.remove(this.classes.hidden);
-        this.mwAddToCart.style.display = "block";
+        if (this.mwAddToCart) {
+          this.mwAddToCart.setAttribute('aria-disabled', true);
+          this.mwAddToCartText.classList.add(this.classes.hidden);
+          this.mwLoader.classList.remove(this.classes.hidden);
+          this.mwAddToCart.style.display = "block";
+        }
         if (this.shopifyPaymentButton) {
           this.shopifyPaymentButton.setAttribute('disabled', true);
         }
@@ -8352,10 +8354,12 @@ theme.Product = (function() {
         this.addToCart.removeAttribute('aria-disabled');
         this.addToCartText.classList.remove(this.classes.hidden);
         this.loader.classList.add(this.classes.hidden);
-        this.mwAddToCart.removeAttribute('aria-disabled');
-        this.mwAddToCartText.classList.remove(this.classes.hidden);
-        this.mwLoader.classList.add(this.classes.hidden);
-        this.mwAddToCart.style.display = "block";
+        if (this.mwAddToCart) {
+          this.mwAddToCart.removeAttribute('aria-disabled');
+          this.mwAddToCartText.classList.remove(this.classes.hidden);
+          this.mwLoader.classList.add(this.classes.hidden);
+          this.mwAddToCart.style.display = "block";
+        }
         if (this.shopifyPaymentButton) {
           this.shopifyPaymentButton.removeAttribute('disabled');
         }
