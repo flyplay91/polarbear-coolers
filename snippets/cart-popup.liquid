@@ -17,6 +17,8 @@
       <div class="cart-popup-item__description">
         <div>
           <h3 class="cart-popup-item__title" data-cart-popup-title></h3>
+          <span class="cart-popup-item__price" data-cart-popup-price></span>
+          <div class="product-details__image hide">{{ 'monogram.png' | asset_url | img_tag }}</div>
           <ul class="product-details" aria-label="{{ 'cart.popup.product_details' | t }}" data-cart-popup-product-details></ul>
         </div>
         <div class="cart-popup-item__quantity">

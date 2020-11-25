@@ -43,6 +43,9 @@ button:focus {
     text-align: right !important;
     padding-right: 17px !important;
 }
+.template-cart .spinner {
+  position: fixed;
+}
 .cart__submit + .cart__submit {
     margin-top: 0;
     margin-left: 0 !important;
@@ -545,15 +548,15 @@ p {
               border-top: 1px solid #d8d8d8;
               .product-image {
                 margin-right: 1.5rem;
-                flex-basis: 30%;
+                flex-basis: 25%;
               }
               .product-details {
                 margin: 0;
                 padding: 0;
                 color: #333;
                 text-align: left;
-                flex-basis: 70%;
-                width: 70%;
+                flex-basis: 75%;
+                width: 75%;
               }
               .product-name {
                 margin: 0;
@@ -573,9 +576,20 @@ p {
               .variant {
                 font-size: 14px;
                 font-weight: 600;
+                position: relative;
                 .option-cart-title {
                   font-weight: normal;
                   margin: 0;
+                  font-size: 14px;
+                }
+                .option-cart-title-content {
+                  font-size: 14px;
+                }
+                .variant-image {
+                  position: absolute;
+                  width: 80px;
+                  left: -105px;
+                  top: 45px;
                 }
               }
               .qty {
@@ -1503,6 +1517,7 @@ ul.grid--view-items {
       margin-right: 0;
       display: block;
       padding: 0 45px;
+      max-height: 100px;
     }
 
     .product-single__thumbnails-item {
@@ -1556,6 +1571,12 @@ ul.grid--view-items {
         }
       }
     }
+  }
+}
+
+.slick-slide {
+  img {
+    width: 100%;
   }
 }
 
@@ -2516,6 +2537,28 @@ ul.grid--view-items {
       .feature-row__image {
         position: relative;
         max-width: 500px !important;
+      }
+    }
+  }
+
+  .template-product {
+    .product-template__container {
+      .grid {
+        margin-left: 0;
+      }
+      .grid__item {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 50px;
+      }
+    }
+    .product-description {
+      .product-description-tabs ul li {
+        padding: 0 5px;
+        margin-bottom: 10px;
+      }
+      .product-description-blocks {
+        padding: 30px 0;
       }
     }
   }

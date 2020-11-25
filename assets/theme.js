@@ -7951,6 +7951,7 @@ theme.Product = (function() {
       cartPopupQuantity: '[data-cart-popup-quantity]',
       cartPopupQuantityLabel: '[data-cart-popup-quantity-label]',
       cartPopupTitle: '[data-cart-popup-title]',
+      cartPopupPrice: '[data-cart-popup-price]',
       cartPopupWrapper: '[data-cart-popup-wrapper]',
       loader: '[data-loader]',
       loaderStatus: '[data-loader-status]',
@@ -8113,12 +8114,12 @@ theme.Product = (function() {
     _initMobileBreakpoint: function() {
       if (this.mqlSmall.matches) {
         // initialize thumbnail slider on mobile if more than four thumbnails
-        if (
-          this.container.querySelectorAll(this.selectors.productThumbImages)
-            .length > 4
-        ) {
-          this._initThumbnailSlider();
-        }
+        // if (
+        //   this.container.querySelectorAll(this.selectors.productThumbImages)
+        //     .length > 4
+        // ) {
+        //   this._initThumbnailSlider();
+        // }
 
         // destroy image zooming if enabled
         if (this.settings.zoomEnabled) {
@@ -8147,7 +8148,7 @@ theme.Product = (function() {
           }.bind(this)
         );
       }
-      this._initThumbnailSlider();
+      // this._initThumbnailSlider();
     },
 
     _initVariants: function() {
@@ -8399,6 +8400,9 @@ theme.Product = (function() {
       this.cartPopupTitle =
         this.cartPopupTitle ||
         document.querySelector(this.selectors.cartPopupTitle);
+      this.cartPopupPrice =
+        this.cartPopupPrice ||
+        document.querySelector(this.selectors.cartPopupPrice);
       this.cartPopupQuantity =
         this.cartPopupQuantity ||
         document.querySelector(this.selectors.cartPopupQuantity);
@@ -8430,6 +8434,7 @@ theme.Product = (function() {
         : null;
 
       this.cartPopupTitle.textContent = item.product_title;
+      this.cartPopupPrice.textContent = Shopify.formatMoney(item.price);
       this.cartPopupQuantity.textContent = quantity;
       this.cartPopupQuantityLabel.textContent = theme.strings.quantityLabel.replace(
         '[count]',
@@ -8582,6 +8587,9 @@ theme.Product = (function() {
         // if the property value has a length of 0 (empty), don't display it
         if (property[1].length === 0) return;
 
+        if (property[0] == 'Personalize Your Order') {
+          property[1] += document.querySelector('.mw_product_option_label .value-price').innerHTML;
+        }
         propertyListHTML =
           propertyListHTML +
           '<li class="product-details__item product-details__item--property">' +
@@ -8591,6 +8599,12 @@ theme.Product = (function() {
           property[1];
         ': ' + '</li>';
       });
+
+      if (propertyListHTML.length > 0) {
+        document.querySelector('.product-details__image').classList.remove('hide');
+      } else {
+        document.querySelector('.product-details__image').classList.add('hide');
+      }
 
       return propertyListHTML;
     },

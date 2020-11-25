@@ -4560,6 +4560,12 @@ hr {
 
 .cart__product-information {
   display: flex;
+  position: relative;
+}
+.cart__product-information .product-details__image {
+  width: 60px;
+  left: 36px;
+  top: 110px;
 }
 
 .cart__image-wrapper {
@@ -5785,6 +5791,14 @@ hr {
   flex-basis: 100%;
   justify-content: space-between;
   line-height: 1.2rem;
+  position: relative;
+}
+
+.product-details__image {
+  position: absolute;
+  width: 50px;
+  left: -65px;
+  top: 100px;
 }
 
 .cart-popup-item__title {

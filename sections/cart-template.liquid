@@ -1,8 +1,15 @@
 <div class="page-width" data-section-id="{{ section.id }}" data-section-type="cart-template" data-ajax-enabled="{{ section.settings.cart_ajax_enable }}">
-
-  <div {% if cart.item_count == 0 %}class="hide" {% endif %}data-cart-wrapper>
+  {%- assign count = 0 -%}
+  {% for item in cart.items %}
+    {% if item.product.type == 'mw_motivator_product' %}{% continue %}{% endif %}
+    {% if item.product.type == 'mw_hidden_cart_fee' %}{% continue %}{% endif %}
+    {% unless item.product.type == 'mw_product_option' or item.properties._mw_is_variant %}
+      {%- assign count = count | plus: 1 -%}
+    {% endunless %}
+  {% endfor %}
+  <div {% if count == 0 %}class="hide" {% endif %}data-cart-wrapper>
     <div class="cart-header">
-      <h1 class="cart-header__title">Your Cart: {{ cart.item_count }} {% if cart.item_count > 1 %} items {% else %} item {% endif %}</h1>
+      <h1 class="cart-header__title">Your Cart: {{ count }} {{ count | pluralize: 'item', 'items' }}</h1>
       <a href="{{ routes.all_products_collection_url }}" class="text-link text-link--accent">
         << Continue Shopping
       </a>
@@ -23,19 +30,11 @@
           <th class="" scope="col"></th>
         </thead>
         <tbody data-cart-line-items>
-          {%- assign count = 0 -%}
-          {% for item in cart.items %}
-            {% if item.product.type == 'mw_motivator_product' %}{% continue %}{% endif %}
-            {% if item.product.type == 'mw_hidden_cart_fee' %}{% continue %}{% endif %}
-            {% unless item.product.type == 'mw_product_option' or item.properties._mw_is_variant %}
-              {%- assign count = count | plus: 1 -%}
-            {% endunless %}
-          {% endfor %}
           {%- for item in cart.items -%}
           {% if item.product.type == 'mw_motivator_product' %}{% continue %}{% endif %}
           {% if item.product.type == 'mw_hidden_cart_fee' %}{% continue %}{% endif %}
 
-            <tr class="cart__row {% include 'mw_PO_cart', code: 'class' %}" {% include 'mw_PO_cart' with item, code: 'style' %} data-cart-item data-cart-item-key="{{ item.key }}" data-cart-item-url="{{ item.url }}" data-cart-item-title="{{ item.title }}" data-cart-item-index="{{ forloop.index }}" data-cart-item-quantity="{{ item.quantity }}">
+            <tr class="cart__row {% include 'mw_PO_cart', code: 'class' %}" {% include 'mw_PO_cart' with item, code: 'style' %} data-cart-item data-cart-item-key="{{ item.key }}" data-cart-item-url="{{ item.url }}" data-cart-item-title="{{ item.title }}" data-cart-item-index="{{ forloop.index }}" data-cart-item-quantity="{{ item.quantity }}" data-cart-item-relation="{{ item.properties._mw_option_relation }}">
               <td class="cart__meta small--text-left" data-cart-table-cell>
                  {% include 'mw_PO_cart' with item, code: 'relation' %}
                 <div class="cart__product-information">
@@ -95,6 +94,9 @@
                     </ul>
                     {% endcomment %}
 
+                    {%- assign property_size = item.properties | size -%}
+
+                    <div class="product-details__image{% if item.product.has_only_default_variant or property_size <= 1 %} hide{% endif %}">{{ 'monogram.png' | asset_url | img_tag }}</div>
                     <ul class="product-details{% if item.product.has_only_default_variant and property_size == 0 and item.selling_plan_allocation == nil %} hide{% endif %}" data-cart-item-details aria-label="{{ 'cart.label.product_details' | t }}">
                      
                       <li> SKU: {{ item.sku }}</li>
