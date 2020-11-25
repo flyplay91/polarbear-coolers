@@ -173,11 +173,12 @@ function buildMiniCart(cart) {
 	cart.items.forEach(function(item, idx) {
 		if (item.product_type == 'mw_motivator_product' || item.product_type == 'mw_hidden_cart_fee') return;
 
-		let style = (item.product_type == 'mw_product_option' || (item.properties.hasOwnProperty('item.properties') && item.properties._mw_is_variant)) ? 'style="display:none"' : '';
+		let style = (item.product_type == 'mw_product_option' || (item.properties && item.properties.hasOwnProperty('item.properties') && item.properties._mw_is_variant)) ? 'style="display:none"' : '';
 		let image = item.image ? item.image.replace(/(\.jpg|\.png)/g, '_small$1') : '';
 		// let price = getMwPrice(cart, item);
 		let price = Shopify.formatMoney(item.price);
 		let variant = '';
+		let relation = '';
 		if (item.product_has_only_default_variant == false) {
 			variant = getMwProperties(cart, item);
 			let temp = '';
@@ -185,10 +186,11 @@ function buildMiniCart(cart) {
 				temp += `<span class="option-cart-title">${option.name}:</span><span class="option-cart-title-content">${option.value}</span><br/>`;
 			});
 			variant = temp + variant;
+			relation = item.properties._mw_option_relation;
 		}
 
 		productListHtml += `
-			<li class="item mw_cart_line" ${style} id="cart-item-${item.id}" data-id="${item.id}" data-index="${ idx + 1 }" data-relation="${item.properties._mw_option_relation}">
+			<li class="item mw_cart_line" ${style} id="cart-item-${item.id}" data-id="${item.id}" data-index="${ idx + 1 }" data-relation="${relation}">
 				<a href="${item.url}" title="${item.title}" class="product-image">
 					<img src="${image}" alt="${item.title}"></a>
 				<div class="product-details">
