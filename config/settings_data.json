@@ -213,39 +213,39 @@
         "type": "home-featured-row",
         "settings": {
           "image": "shopify:\/\/shop_images\/details1.jpg",
-          "image_link": "shopify:\/\/products\/pbc-reusable-ice-pack",
+          "image_link": "shopify:\/\/collections\/hard-coolers",
           "layout": "right",
           "title": "Polar Bear Hard Coolers – The HARD Insulation Sensation.",
           "text_image": "shopify:\/\/shop_images\/hard-sfnt.jpg",
           "text": "<p>In the world of keeping cool, you are only as good as your gear. Duration is the name of the game, and no matter what your game is, you can count on Polar Bear Coolers to get you there. Tough, rugged and durable, Nothing Keeps Cool Like a Polar Bear! We went the extra mile in developing the Polar Bear Hard Cooler line. We built value in to every part from top to bottom. Value we knew you would appreciate, at a price that you can afford. Because for us, it’s not a game unless you win! If this sounds like your game plan, then this is the cooler you have been waiting for. Not just bear proof – Polar Bear Proof<\/p>",
           "button_label": "Shop Now",
-          "button_link": "shopify:\/\/products\/pbc-reusable-ice-pack"
+          "button_link": "shopify:\/\/collections\/hard-coolers"
         }
       },
       "1605305921e54db9b1": {
         "type": "home-featured-row",
         "settings": {
           "image": "shopify:\/\/shop_images\/details2.jpg",
-          "image_link": "shopify:\/\/products\/pbc-reusable-ice-pack",
+          "image_link": "shopify:\/\/collections\/deluxe-soft-coolers",
           "layout": "left",
           "title": "Polar Bear Deluxe Soft Coolers – The DELUXE Insulation Sensation.",
           "text_image": "shopify:\/\/shop_images\/deluxe-sfnt.jpg",
           "text": "<p>We didn’t need to go over the top, but we did anyway. Our all-new Deluxe Soft Cooler line is built for those who want the absolute highest performing soft cooler on the market today. The Deluxe features industry leading 3-Day chill time, YKK Splash-Guard Zipper, carabiner daisy chain, stainless-steel tie-down points and built-in bottle openers. Available in both zip down the middle and flip-top configurations.<\/p><p><a href=\"https:\/\/www.polarbearcoolers.com\/product-category\/deluxe\/\">SHOP NOW<\/a><\/p><p><br\/><\/p>",
           "button_label": "Shop Now",
-          "button_link": "shopify:\/\/products\/pbc-reusable-ice-pack"
+          "button_link": "shopify:\/\/collections\/deluxe-soft-coolers"
         }
       },
       "1605305959b579f0f7": {
         "type": "home-featured-row",
         "settings": {
           "image": "shopify:\/\/shop_images\/sfntk3.jpg",
-          "image_link": "shopify:\/\/products\/pbc-reusable-ice-pack",
+          "image_link": "shopify:\/\/collections\/original-soft-coolers",
           "layout": "right",
           "title": "It's THE ORIGINAL Insulation sensation. Everything you need nothing you don’t. Satisfaction guaranteed!",
           "text_image": "shopify:\/\/shop_images\/original-sfnt.jpg",
           "text": "<p>THE ORIGINAL performance soft cooler. Quality like no other from the brand you can trust. See touch and feel the Polar Bear difference. The original comes equipped with a leak proof \/ sweat proof food grade liner, The toughest and strongest easy to clean interior liner you can own, YKK Heavy duty #10 zipper and built-in bottle openers. One great thing about the original is that it meets all the requirements of a performance soft cooler and it can be monogrammed or embroidered with your logo.<\/p>",
           "button_label": "Shop Now",
-          "button_link": "shopify:\/\/products\/pbc-reusable-ice-pack"
+          "button_link": "shopify:\/\/collections\/original-soft-coolers"
         }
       },
       "footer": {
@@ -287,7 +287,7 @@
           "color_subscription_hover_btn": "#e17824",
           "color_footer_link_text": "#ff830f",
           "color_footer_link_hover_text": "#ffffff",
-          "copywriter_text": "POLAR BEAR COOLERS © 2020. ALL RIGHTS RESERVED."
+          "copywriter_text": "POLAR BEAR COOLERS © 2020-2021. ALL RIGHTS RESERVED."
         }
       },
       "collection-template": {
@@ -314,9 +314,7 @@
       "product-recommendations": {
         "type": "product-recommendations",
         "settings": {
-          "show_product_recommendations": true,
           "heading": "Most Like These Also",
-          "show_vendor": false,
           "collection": "accessories"
         }
       },
