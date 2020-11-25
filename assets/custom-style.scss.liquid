@@ -112,6 +112,15 @@ padding-bottom: 15px;}
   flex-wrap: wrap;
 }
 
+.swatches.hover-enabled li.swatch-view-item:hover .swatch-selector.star-set-btn span, 
+.swatches.hover-enabled li.swatch-view-item:hover .swatch-group-selector.star-set-btn span, 
+li.swatch-view-item:focus .swatch-selector.star-set-btn span, 
+li.swatch-view-item:focus .swatch-group-selector.star-set-btn span, 
+.swatch-selected.star-set-btn span {
+  color: white !important;
+}
+
+
 .soft-coolers-description {
   	width: 90%;
     margin: 0 auto 55px auto;
@@ -764,7 +773,9 @@ p {
           }
 
           .bottom-dropdown-menu-item {
-            
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             background-color: #fff;
             color: #000;
             margin: 5px;
@@ -787,8 +798,6 @@ p {
               display: block;
               text-align: center;
               text-decoration: none;
-              max-width: 250px;
-              margin: 0 auto;
               font-size: 20px;
               font-weight: 700;
               padding: 10px 0;
@@ -1255,6 +1264,20 @@ p {
   }
 }
 
+.left {
+  padding-right: 20px;
+  @media(max-width: 600px) {
+    padding-right: 10px;
+  }
+}
+
+right {
+  padding-left: 20px;
+  @media(max-width: 600px) {
+    padding-left: 10px;
+  }
+}
+
 .template-collection {
   .collection-header {
     h1 {
@@ -1275,6 +1298,10 @@ p {
               font-size: 25px;
               font-weight: 400;
               color: #4a4a4a;
+
+              @media(max-width: 600px) {
+                font-size: 20px;
+              }
               	strong {
                   font-weight:900;
                 }
@@ -1286,34 +1313,43 @@ p {
             font-size: 25px;
             font-weight: 400;
             color: #4a4a4a;
+
+            @media(max-width: 600px) {
+              font-size: 18px;
+            }
           }
           p {
             font-size: 20px;
             font-weight: 200;
             letter-spacing: 0.05em;
             margin-bottom:60px;
+
+            @media(max-width: 600px) {
+              font-size: 14px;
+            }
           }
 
-          
-         
           button {
             display: block;
-			width: 100%;
+		        width: 100%;
             padding: calc(0.5em * 3 - 1px) calc(1em * 3 - 1px);
             margin:0px 0px 50px 0px;
             line-height: normal;
-			text-align: center;
+		        text-align: center;
             border: 1px solid rgba(0, 0, 0, 0);
             appearance: none;
-			cursor: pointer;
-			letter-spacing: 0.05em;
+		        cursor: pointer;
+		        letter-spacing: 0.05em;
             transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
-			font-size: 15px;
+		        font-size: 15px;
             text-transform:uppercase;   
             font-weight:bold;
+            @media(max-width: 600px) {
+              padding: 10px 20px;
+            }
           }
           .dark {
             background-color: #333;
