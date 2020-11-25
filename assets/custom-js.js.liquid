@@ -68,6 +68,24 @@ $(document).ready(function() {
 				buildMiniCart(cart);
 			}, "json");
 		});
+		/*.on('click', '.template-cart tr.cart__row .cart__x .text-link', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			$('body').append('<div class="spinner"></div>');
+			let $item = $(this).closest('.cart__row');
+			let relation = $item.attr('data-cart-item-relation');
+			let qty_list = [];
+			$('.template-cart tr.cart__row').each(function(idx, item) {
+				if ($(item).attr('data-cart-item-relation') == relation) {
+					qty_list.push(0);
+				} else {
+					qty_list.push(parseInt($(item).find('.cart__qty-input').val()));
+				}
+			});
+			$.post('/cart/update.js', {updates: qty_list}, function(cart) {
+				window.location.href = '/cart';
+			}, "json");
+		});*/
 
 
 	$('.product-main-image').on('init', function(event, slick){
@@ -130,12 +148,6 @@ $(document).ready(function() {
 	  ]
 	});
   
-	
-	
-
-	
-
-
 	$('.product-popup').magnificPopup({
 		disableOn: 700,
 		type: 'iframe',
@@ -149,12 +161,16 @@ $(document).ready(function() {
 		$('.recovery-pass-form').toggleClass('hide');
 	});
 
+
 	if ($(window).width() < 801) {
 		$('body').on('click', '.normal-page-sidebar > h3', function() {
 			$(this).closest('.normal-page-sidebar').toggleClass('active');
 		});	
 	}
-	
+
+	$.getJSON('/cart.js', function(cart) {
+		buildMiniCart(cart);
+	});
 });
 
 function showReview() {
@@ -190,8 +206,9 @@ function buildMiniCart(cart) {
 
 		let style = (item.product_type == 'mw_product_option' || item.properties._mw_is_variant) ? 'style="display:none"' : '';
 		let image = item.image ? item.image.replace(/(\.jpg|\.png)/g, '_small$1') : '';
-		let price = getMwPrice(cart, item);
-		let variant = getMwProperties(item);
+		// let price = getMwPrice(cart, item);
+		let price = Shopify.formatMoney(item.price);
+		let variant = getMwProperties(cart, item);
 		if (item.product_has_only_default_variant == false) {
 			let temp = '';
 			item.options_with_values.forEach(function(option) {
@@ -255,17 +272,24 @@ function getMwPrice(cart, item) {
 	return Shopify.formatMoney(total);
 }
 
-function getMwProperties(item) {
+function getMwProperties(cart, item) {
 	let html = '';
 	if (Object.keys(item.properties).length > 0 && item.product_type != 'mw_product_option') {
 		for (p in item.properties) {
+			if (p == 'Personalize Your Order') {
+				for (i in cart.items) {
+					if (cart.items[i].product_type == 'mw_product_option' && cart.items[i].properties._mw_option_relation == item.properties._mw_option_relation) {
+						item.properties[p] += ' (+' + Shopify.formatMoney(cart.items[i].price) + ')';
+					}
+				}
+			}
 			if (item.properties[p] != '') {
 				if (p.indexOf('_mw_option_relation') >= 0) continue;
 				if (p.indexOf('_replaced_image') >= 0) continue;
 				if (p.indexOf('_builder_id') >= 0) continue;
 				if (p.indexOf('_master_builder') >= 0) continue;
 				html += '<br>';
-				html += `<span class="option-cart-title">${p}:</span>`;
+				html += `<span class="option-cart-title">${p}: </span>`;
 				if (item.properties[p].indexOf('/uploads/') >= 0) {
 					let url = item.properties[p].split('/');
 					html += `<a class="lightbox" href="${ item.properties[p] }">${ url[url.length - 1] }</a>`;
@@ -273,6 +297,9 @@ function getMwProperties(item) {
 					html += `<span class="option-cart-title-content">${ item.properties[p] }</span>`;
 				}
 			}
+		}
+		if (html.length > 0) {
+			html = '<span class="variant-image">{{ 'monogram.png' | asset_url | img_tag }}</span>' + html;
 		}
 		html += '<br><span class="mw-configure-link-container"></span>';
 	}
